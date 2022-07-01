@@ -1,0 +1,7 @@
+# Example configuration
+
+books:
+  - name: Clean Architecture
+    author: Robert C. Martin
+    started: 01-01-2022
+    finished: 03-03-2022
