@@ -3,5 +3,9 @@
 books:
   - name: Clean Architecture
     author: Robert C. Martin
-    started: 01-01-2022
-    finished: 03-03-2022
+    started: 2022-01-01
+    finished: 2022-03-03
+  - name: Introduction to the Theory of Computation
+    author: Michael Sipser
+    started: 2022-02-02
+    finished: 2022-04-04
