@@ -1,25 +1,26 @@
 import yaml
 import drawSvg as draw
-import config as conf
+import data as dat
+import calculator as calc
 
-def read_config(path):
+def read_yaml(path):
     try:
         file = open(path, 'r')
-        config_dict = yaml.load(file, Loader=yaml.FullLoader)
-        return config_dict
+        d = yaml.load(file, Loader=yaml.FullLoader)
+        return d
     except IOError:
-        print("Could not load the configuration file.")
+        print("Could not load %s." % path)
         exit(1)
     except yaml.YAMLError:
-        print("Invalid YAML in configuration file.")
+        print("Invalid YAML in %s." % path)
         exit(1)
 
 def main():
-    # Read configuration file
-    config_dict = read_config('config.yml')
-    config = conf.Config(config_dict)
+    # Read data file
+    data_dict = read_yaml('data.yml')
+    data = dat.Data(data_dict)
 
-    print(config)
+    print(data)
 
     # Calculate positions and sizes
     pass
