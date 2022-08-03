@@ -1,8 +1,34 @@
 ---
+# Canvas
+canvas_size_x: 600
+canvas_size_y: 5100
+
 # Timeline
 
+timeline_line_width: 0.264
+timeline_line_color: '#e5e5e5'
 timeline_start_x: 15.875
 timeline_end_x: 42.33
+timeline_start_y: 3.0
+
+# Month
+
+month_line_start_x: 10.6
+month_line_start_y: 17.35
+month_height: 53.0
+month_text_start_x: 1.06
+month_text_font_size: 4.23
+month_text_color: '#666666'
+
+# Date
+date_text_line_spacing: 1.5
+date_text_font_size: 3.7
+date_text_start_y: 6.75
+date_text_color: '#808080'
+date_text_anchor: 'end'
+
+date_started_start_x: 14.58
+date_finished_start_x: 41.09
 
 # Book
 
