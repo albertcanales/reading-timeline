@@ -1,18 +1,9 @@
 import svgwrite
 
-books = [
-    {
-        'title': "The Plot",
-        'author': "Jean Hanff Korelitz",
-        'start_y': 10.6 + 47.61,
-        'finish_y': 10.6 + 21.97,
-    },
-]
-
 def draw(path, c, p):
     dwg = svgwrite.Drawing(path, (c.canvas_size_x, c.canvas_size_y), viewBox="0 0 158.75 1349.3751")
     dwg = draw_grid(dwg, c, p)
-    for book in books:
+    for book in p.books:
         dwg = draw_book(dwg, book, c)
     dwg.save(pretty=True)
 
@@ -44,17 +35,17 @@ def draw_grid(dwg, c, p):
 
 def draw_book(dwg, book, c):
     # Line
-    dwg.add(dwg.line((c.timeline_start_x, book['start_y']), (c.timeline_end_x, book['finish_y']), stroke=c.book_line_color, stroke_width=c.book_line_width))
+    dwg.add(dwg.line((c.timeline_start_x, book.start_y), (c.timeline_end_x, book.finish_y), stroke=c.book_line_color, stroke_width=c.book_line_width))
 
     # Circles
-    dwg.add(dwg.circle((c.timeline_start_x, book['start_y']), r=c.book_tip_radius, fill=c.book_tip_color))
-    dwg.add(dwg.circle((c.timeline_end_x, book['finish_y']), r=c.book_tip_radius, fill=c.book_tip_color))
+    dwg.add(dwg.circle((c.timeline_start_x, book.start_y), r=c.book_tip_radius, fill=c.book_tip_color))
+    dwg.add(dwg.circle((c.timeline_end_x, book.finish_y), r=c.book_tip_radius, fill=c.book_tip_color))
 
     # Title and author
     dy = c.book_title_font_size * c.book_text_line_spacing
-    text = dwg.text("", insert=(c.book_text_start_x, book['finish_y']), dominant_baseline="central")
-    text.add(dwg.tspan(book['title'], font_weight='bold', font_size=str(c.book_title_font_size)+'px'))
-    text.add(dwg.tspan(book['author'], x=[c.book_text_start_x], dy=[str(dy)+"px"], font_size=str(c.book_author_font_size)+'px'))
+    text = dwg.text("", insert=(c.book_text_start_x, book.finish_y), dominant_baseline="central")
+    text.add(dwg.tspan(book.title, font_weight='bold', font_size=str(c.book_title_font_size)+'px'))
+    text.add(dwg.tspan(book.author, x=[c.book_text_start_x], dy=[str(dy)+"px"], font_size=str(c.book_author_font_size)+'px'))
     dwg.add(text)
 
     return dwg
