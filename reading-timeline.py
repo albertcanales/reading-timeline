@@ -1,5 +1,4 @@
 import yaml
-import drawSvg as draw
 import data as dat
 import calculator as calc
 
