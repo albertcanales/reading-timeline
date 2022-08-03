@@ -1,6 +1,7 @@
 import yaml
 import data as dat
 import config as con
+import processor as proc
 import drawer as drw
 
 def read_yaml(path):
@@ -20,14 +21,15 @@ def main():
     data_dict = read_yaml('data.yml')
     data = dat.Data(data_dict)
 
-    print(data)
-
-    # Calculate positions and sizes
+    # Read the configuration
     config_dict = read_yaml('config.yml')
     config = con.Config(config_dict)
 
-    # Draw the SVG
-    drw.draw('render.svg', config)
+    # Process data using the configuration
+    process = proc.Processor(data, config)
+
+    # Draw the image from processed data and configuration
+    drw.draw('render.svg', config, process)
 
 if __name__ == "__main__":
     main()

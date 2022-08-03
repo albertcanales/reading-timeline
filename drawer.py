@@ -9,28 +9,23 @@ books = [
     },
 ]
 
-def draw(path, c):
+def draw(path, c, p):
     dwg = svgwrite.Drawing(path, (c.canvas_size_x, c.canvas_size_y), viewBox="0 0 158.75 1349.3751")
-    dwg = draw_grid(dwg, c)
+    dwg = draw_grid(dwg, c, p)
     for book in books:
         dwg = draw_book(dwg, book, c)
     dwg.save(pretty=True)
 
-def draw_grid(dwg, c):
+def draw_grid(dwg, c, p):
     # Vertical lines
     dwg.add(dwg.line((c.timeline_start_x, c.timeline_start_y), (c.timeline_start_x, c.canvas_size_y), stroke=c.timeline_line_color, stroke_width=c.timeline_line_width))
     dwg.add(dwg.line((c.timeline_end_x, c.timeline_start_y), (c.timeline_end_x, c.canvas_size_y), stroke=c.timeline_line_color, stroke_width=c.timeline_line_width))
 
-    # Horizontal lines
-
-    for i in range(5):
-        dwg.add(dwg.line((c.month_line_start_x, c.month_line_start_y + c.month_height*i), (c.timeline_end_x, c.month_line_start_y + c.month_height*i), stroke=c.timeline_line_color, stroke_width=c.timeline_line_width))
-
-    # Month labels
-    for i in range(4):
-        label = str(12-i) + "/22"
-        pos = (c.month_text_start_x, c.month_line_start_y + c.month_height*i + c.month_height/2 + c.month_text_font_size/2)
-        dwg.add(dwg.text(label, insert=pos, font_style='italic', font_size=str(c.month_text_font_size)+'px', fill=c.month_text_color))
+    # Month labels and lines
+    dwg.add(dwg.line((c.month_line_start_x, c.month_line_start_y), (c.timeline_end_x, c.month_line_start_y), stroke=c.timeline_line_color, stroke_width=c.timeline_line_width))
+    for month in p.months:
+        dwg.add(dwg.text(month.text, insert=(c.month_text_start_x, month.text_y), font_style='italic', font_size=str(c.month_text_font_size)+'px', fill=c.month_text_color))
+        dwg.add(dwg.line((c.month_line_start_x, month.line_y), (c.timeline_end_x, month.line_y), stroke=c.timeline_line_color, stroke_width=c.timeline_line_width))
 
     # Date labels
     dy = c.date_text_font_size * c.date_text_line_spacing

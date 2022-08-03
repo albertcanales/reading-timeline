@@ -33,7 +33,7 @@ class Books:
         return min([ book.start_date for book in self.books ])
 
     def get_max_date(self):
-        return max([ book.end_date for book in self.books ])
+        return max([ book.finish_date for book in self.books ])
 
     def get_books_in_dates(self, min_date, max_date):
         return filter(lambda book: book.start_date >= min_date and book.finish_date < max_date, self.books)
