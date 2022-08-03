@@ -9,8 +9,8 @@ def draw(path, c, p):
 
 def draw_grid(dwg, c, p):
     # Vertical lines
-    dwg.add(dwg.line((c.timeline_start_x, c.timeline_start_y), (c.timeline_start_x, c.canvas_size_y), stroke=c.timeline_line_color, stroke_width=c.timeline_line_width))
-    dwg.add(dwg.line((c.timeline_end_x, c.timeline_start_y), (c.timeline_end_x, c.canvas_size_y), stroke=c.timeline_line_color, stroke_width=c.timeline_line_width))
+    dwg.add(dwg.line((c.timeline_start_x, c.timeline_start_y), (c.timeline_start_x, p.timeline_end_y), stroke=c.timeline_line_color, stroke_width=c.timeline_line_width))
+    dwg.add(dwg.line((c.timeline_end_x, c.timeline_start_y), (c.timeline_end_x, p.timeline_end_y), stroke=c.timeline_line_color, stroke_width=c.timeline_line_width))
 
     # Month labels and lines
     dwg.add(dwg.line((c.month_line_start_x, c.month_line_start_y), (c.timeline_end_x, c.month_line_start_y), stroke=c.timeline_line_color, stroke_width=c.timeline_line_width))
