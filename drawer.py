@@ -9,14 +9,14 @@ books = [
     },
 ]
 
-def draw(path):
+def draw(path, c):
     dwg = svgwrite.Drawing(path, (600, 5100), viewBox="0 0 158.75 1349.3751")
-    dwg = draw_grid(dwg)
+    dwg = draw_grid(dwg, c)
     for book in books:
-        dwg = draw_book(dwg, book)
+        dwg = draw_book(dwg, book, c)
     dwg.save(pretty=True)
 
-def draw_grid(dwg):
+def draw_grid(dwg, c):
     # Vertical lines
     dwg.add(dwg.line((15.875, 3), (15.875, 5100), stroke='#e5e5e5', stroke_width=0.264))
     dwg.add(dwg.line((42.33, 3), (42.33, 5100), stroke='#e5e5e5', stroke_width=0.264))
@@ -46,21 +46,19 @@ def draw_grid(dwg):
 
     return dwg
 
-def draw_book(dwg, book):
-    # Circles
-    dwg.add(dwg.circle((15.875, book['start_y']), r=1.72, fill="#2a7fff"))
-    dwg.add(dwg.circle((42.33, book['finish_y']), r=1.72, fill="#2a7fff"))
-
+def draw_book(dwg, book, c):
     # Line
-    dwg.add(dwg.line((15.875, book['start_y']), (42.33, book['finish_y']), stroke='#2a7fff', stroke_width=0.53))
+    dwg.add(dwg.line((c.timeline_start_x, book['start_y']), (c.timeline_end_x, book['finish_y']), stroke=c.book_line_color, stroke_width=c.book_line_width))
+
+    # Circles
+    dwg.add(dwg.circle((c.timeline_start_x, book['start_y']), r=c.book_tip_radius, fill=c.book_tip_color))
+    dwg.add(dwg.circle((c.timeline_end_x, book['finish_y']), r=c.book_tip_radius, fill=c.book_tip_color))
 
     # Title and author
-    dy = 4.23 * 1.25
-    text = dwg.text("", insert=(46, book['finish_y']), dominant_baseline="central")
-    text.add(dwg.tspan(book['title'], font_weight='bold', font_size='4.23px'))
-    text.add(dwg.tspan(book['author'], x=[46], dy=[str(dy)+"px"], font_size='3.7px'))
+    dy = c.book_title_font_size * c.book_text_line_spacing
+    text = dwg.text("", insert=(c.book_text_start_x, book['finish_y']), dominant_baseline="central")
+    text.add(dwg.tspan(book['title'], font_weight='bold', font_size=str(c.book_title_font_size)+'px'))
+    text.add(dwg.tspan(book['author'], x=[c.book_text_start_x], dy=[str(dy)+"px"], font_size=str(c.book_author_font_size)+'px'))
     dwg.add(text)
 
     return dwg
-
-draw('test.svg')

@@ -1,0 +1,17 @@
+---
+# Timeline
+
+timeline_start_x: 15.875
+timeline_end_x: 42.33
+
+# Book
+
+book_tip_radius: 1.72
+book_tip_color: '#2a7fff'
+book_line_color: '#2a7fff'
+book_line_width: 0.53
+
+book_text_start_x: 46.0
+book_text_line_spacing: 1.25
+book_title_font_size: 4.23
+book_author_font_size: 3.7

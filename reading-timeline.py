@@ -1,6 +1,7 @@
 import yaml
 import data as dat
-import calculator as calc
+import config as con
+import drawer as drw
 
 def read_yaml(path):
     try:
@@ -22,10 +23,11 @@ def main():
     print(data)
 
     # Calculate positions and sizes
-    pass
+    config_dict = read_yaml('config.yml')
+    config = con.Config(config_dict)
 
     # Draw the SVG
-    pass
+    drw.draw('render.svg', config)
 
 if __name__ == "__main__":
     main()
