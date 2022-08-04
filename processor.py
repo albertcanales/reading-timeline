@@ -14,7 +14,10 @@ class Processor:
 
 
     def _process_months(self, data, c):
-        months_text = reversed(pd.date_range(data.get_min_date(), data.get_max_date(), freq='MS').strftime("%m/%y").tolist())
+        min_date, max_date = data.get_min_date(), data.get_max_date()
+        months_text = pd.date_range(min_date, max_date, freq='MS').strftime("%m/%y").tolist()[::-1]
+        if int(min_date.strftime('%d')) > 1:
+            months_text = months_text + [ min_date.strftime("%m/%y") ]
         i = 0
         self.months = []
         for m in months_text:
@@ -31,7 +34,7 @@ class Processor:
             self.books.append(ProcessedBook(book.title, book.author, start_y, finish_y))
 
     def _process_other(self, data, c):
-        self.timeline_end_y = c.timeline_start_y + len(self.months) * c.month_height
+        self.timeline_end_y = c.month_line_start_y + len(self.months) * c.month_height
 
     def _get_y(self, date, c):
         month_y = self._get_processed_month(date.strftime("%m/%y")).line_y - c.month_height
@@ -39,4 +42,6 @@ class Processor:
         return month_y + (1 - (int(date.strftime("%d"))-1) / month_len) * c.month_height
 
     def _get_processed_month(self, text):
-        return [m for m in self.months if m.text == text][0]
+        month = [m for m in self.months if m.text == text]
+        assert month, "No ProcessedMonth found for date %s" % text
+        return month[0]
