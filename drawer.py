@@ -41,11 +41,11 @@ def draw_book(dwg, book, c):
     dwg.add(dwg.circle((c.timeline_start_x, book.start_y), r=c.book_tip_radius, fill=c.book_tip_color))
     dwg.add(dwg.circle((c.timeline_end_x, book.finish_y), r=c.book_tip_radius, fill=c.book_tip_color))
 
-    # Title and author
+    # Title and subtitle
     dy = c.book_title_font_size * c.book_text_line_spacing
     text = dwg.text("", insert=(c.book_text_start_x, book.finish_y), dominant_baseline="central")
     text.add(dwg.tspan(book.title, font_weight='bold', font_size=str(c.book_title_font_size)+'px'))
-    text.add(dwg.tspan(book.author, x=[c.book_text_start_x], dy=[str(dy)+"px"], font_size=str(c.book_author_font_size)+'px'))
+    text.add(dwg.tspan(book.subtitle, x=[c.book_text_start_x], dy=[str(dy)+"px"], font_size=str(c.book_author_font_size)+'px'))
     dwg.add(text)
 
     return dwg

@@ -3,7 +3,7 @@ from collections import namedtuple
 import calendar
 
 ProcessedMonth = namedtuple("ProcessedMonth", "text text_y line_y")
-ProcessedBook = namedtuple("ProcessedBook", "title author start_y finish_y")
+ProcessedBook = namedtuple("ProcessedBook", "title subtitle start_y finish_y")
 
 '''
 Represents all the configuration parameters and objects that require some processing before drawn
@@ -34,9 +34,12 @@ class Processor:
     def _process_books(self, data, c):
         self.books = []
         for book in data.books:
+            subtitle = book.author
+            if book.publication_year is not None:
+                subtitle += " (%d)" % book.publication_year
             start_y = self._get_y(book.start_date, c)
             finish_y = self._get_y(book.finish_date, c)
-            self.books.append(ProcessedBook(book.title, book.author, start_y, finish_y))
+            self.books.append(ProcessedBook(book.title, subtitle, start_y, finish_y))
 
 
     # Sets the rest of parameters that require processing
