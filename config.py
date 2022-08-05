@@ -1,3 +1,4 @@
+# Represents the type for each parameter in the config file
 param_types = {
     'book_author_font_size': float,
     'book_line_color': str,
@@ -29,6 +30,9 @@ param_types = {
     'timeline_start_y': float,
 }
 
+'''
+Represents the configuration parameters
+'''
 class Config:
     def __init__(self, params):
         for p in param_types.keys():

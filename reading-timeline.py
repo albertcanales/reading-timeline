@@ -4,6 +4,7 @@ import config as con
 import processor as proc
 import drawer as drw
 
+# Returns the dictionary from the given yaml file path
 def read_yaml(path):
     try:
         file = open(path, 'r')
