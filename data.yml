@@ -1,11 +1,21 @@
 # Example configuration
 
+categories:
+  - id: cs1
+    name: Computer Science
+    color: '#ff0000'
+  - id: cs2
+    name: More Computer Science
+    color: '#0000ff'
+
 books:
   - title: Clean Architecture
     author: Robert C. Martin
     started: 2022-01-07
     finished: 2022-03-03
+    category: cs1
     publication_year: 2018
+
   - title: Introduction to the Theory of Computation
     author: Michael Sipser
     started: 2022-02-02
