@@ -3,6 +3,8 @@ import svgwrite
 def draw(path, c, p):
     dwg = svgwrite.Drawing(path, (c.canvas_size_x, c.canvas_size_y), viewBox="0 0 158.75 1349.3751")
     dwg = draw_grid(dwg, c, p)
+    for category in p.categories:
+        dwg = draw_category(dwg, category, c, p)
     for book in p.books:
         dwg = draw_book(dwg, book, c)
     dwg.save(pretty=True)
@@ -33,13 +35,25 @@ def draw_grid(dwg, c, p):
 
     return dwg
 
+def draw_category(dwg, category, c, p):
+    # Line
+    dwg.add(dwg.line((c.category_line_start_x, category.start_y), (p.category_line_end_x, category.start_y), stroke=category.color, stroke_width=c.category_line_width))
+
+    # Circle
+    dwg.add(dwg.circle((p.category_line_end_x, category.start_y), r=c.category_tip_radius, fill=category.color))
+
+    # Category name
+    dwg.add(dwg.text(category.name, insert=(p.category_text_start_x, category.start_y), font_size=str(c.category_text_font_size)+'px', fill=c.category_text_color, dominant_baseline='middle'))
+
+    return dwg
+
 def draw_book(dwg, book, c):
     # Line
-    dwg.add(dwg.line((c.timeline_start_x, book.start_y), (c.timeline_end_x, book.finish_y), stroke=c.book_line_color, stroke_width=c.book_line_width))
+    dwg.add(dwg.line((c.timeline_start_x, book.start_y), (c.timeline_end_x, book.finish_y), stroke=book.color, stroke_width=c.book_line_width))
 
     # Circles
-    dwg.add(dwg.circle((c.timeline_start_x, book.start_y), r=c.book_tip_radius, fill=c.book_tip_color))
-    dwg.add(dwg.circle((c.timeline_end_x, book.finish_y), r=c.book_tip_radius, fill=c.book_tip_color))
+    dwg.add(dwg.circle((c.timeline_start_x, book.start_y), r=c.book_tip_radius, fill=book.color))
+    dwg.add(dwg.circle((c.timeline_end_x, book.finish_y), r=c.book_tip_radius, fill=book.color))
 
     # Title and subtitle
     dy = c.book_title_font_size * c.book_text_line_spacing
