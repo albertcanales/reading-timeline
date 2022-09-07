@@ -5,7 +5,11 @@ Represents the union of the YAML's data: books
 '''
 class Data:
     def __init__(self, data):
+        # Optional fields
         self.categories = self._init_categories(data)
+        self.from_date = data['from'] if 'from' in data.keys() else None
+        self.to_date = data['to'] if 'to' in data.keys() else None
+
         self.books = self._init_books(data, self.categories)
 
     def __str__(self):
@@ -24,8 +28,8 @@ class Data:
         return max([ book.finish_date for book in books ])
 
     # Returns all books whose start and finish dates are inside of the given interval
-    def get_books_in_dates(self, min_date, max_date):
-        return filter(lambda book: book.start_date >= min_date and book.finish_date < max_date, self.books)
+    def _get_books_in_dates(self, books, min_date, max_date):
+        return [ book for book in books if book.is_in_range(min_date, max_date) ]
 
     # Sets the categories variable
     def _init_categories(self, data):
@@ -36,6 +40,7 @@ class Data:
             categories = [Category(category) for category in data['categories']]
             self._check_categories(categories)
             return categories
+        print("Warning: No categories variable found.")
         return []
 
     # Sets the books variable
@@ -49,7 +54,7 @@ class Data:
             exit(1)
         books = [Book(book, categories) for book in data['books']]
         self._check_books(books)
-        return books
+        return self._get_books_in_dates(books, self.from_date, self.to_date)
 
     # Error checking for categories
     def _check_categories(self, categories):
@@ -98,6 +103,9 @@ class Book:
             self.start_date = book['started']
             self.finish_date = book['finished']
 
+            self._check_date(self.title, self.start_date)
+            self._check_date(self.title, self.finish_date)
+
         except KeyError:
             print("This book is missing data: \n%s" %book)
             exit(1)
@@ -128,10 +136,19 @@ class Book:
             s += " [%s]" % self.category.name
         return s
 
+    def is_in_range(self, from_date, to_date):
+        return (from_date is None or from_date <= self.start_date) \
+            and (to_date is None or to_date >= self.finish_date) 
+
     def _get_category(self, category_id, categories):
         for cat in categories:
             if cat.id == category_id:
                 return cat
         print("Warning: Category %s for book %s not defined" %(category_id, self.title))
         return None
+
+    def _check_date(self, title, date):
+        if(not isinstance(date, datetime.date)):
+            print("Error: Book %s has an invalid date '%s'." % (title, date))
+            exit(1)
 
