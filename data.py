@@ -1,4 +1,5 @@
 import datetime
+from colour import Color
 
 '''
 Represents the union of the YAML's data: books
@@ -85,6 +86,13 @@ class Category:
 
         except KeyError:
             print("This category is missing data: \n%s" %category)
+            exit(1)
+
+        # Error handling
+        try:
+            Color(self.color)
+        except:
+            print("Error: Category '%s' has an invalid color." %(self.name))
             exit(1)
 
     def __str__(self):
