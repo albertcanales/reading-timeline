@@ -18,9 +18,11 @@ class Processor:
     # Sets the ProcessedMonth list of the object
     def _process_months(self, data, c):
         min_date, max_date = data.get_min_date(data.books), data.get_max_date(data.books)
-        months_text = pd.date_range(min_date, max_date, freq='MS').strftime("%m/%y").tolist()[::-1]
+        months_text = pd.date_range(min_date, max_date, freq='MS').strftime("%m/%y").tolist()
         if int(min_date.strftime('%d')) > 1:
-            months_text = months_text + [ min_date.strftime("%m/%y") ]
+            months_text = [ min_date.strftime("%m/%y") ] + months_text
+        if c.reverse_timeline:
+            months_text = months_text[::-1]
         i = 0
         self.months = []
         for m in months_text:
@@ -68,7 +70,10 @@ class ProcessedBook:
     def _get_y(self, date, months, c):
         month_y = self._get_processed_month(date.strftime("%m/%y"), months).line_y - c.month_height
         month_len = calendar.monthrange(date.year, date.month)[1]
-        return month_y + (1 - (int(date.strftime("%d"))-1) / month_len) * c.month_height
+        month_prop = (int(date.strftime("%d"))-1) / month_len
+        if c.reverse_timeline:
+            month_prop = 1 - month_prop
+        return month_y + month_prop * c.month_height
 
     # Returns the corresponding ProcessedMonth from a given date (already formatted)
     def _get_processed_month(self, text, months):

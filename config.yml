@@ -1,4 +1,8 @@
 ---
+# Misc
+
+reverse_timeline: true
+
 # Canvas
 
 canvas_size_x: 600
