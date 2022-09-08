@@ -1,3 +1,4 @@
+from utils import perror, pwarn
 import datetime
 from colour import Color
 
@@ -36,23 +37,20 @@ class Data:
     def _init_categories(self, data):
         if 'categories' in data.keys():
             if not isinstance(data['categories'], list):
-                print("The categories variable must be a list.")
-                exit(1)
+                perror("The categories variable must be a list.")
             categories = [Category(category) for category in data['categories']]
             self._check_categories(categories)
             return categories
-        print("Warning: No categories variable found.")
+        pwarn("No categories variable found.")
         return []
 
     # Sets the books variable
     def _init_books(self, data, categories):
         try:
             if not isinstance(data['books'], list):
-                print("The books variable must be a list.")
-                exit(1)
+                perror("The books variable must be a list.")
         except TypeError:
-            print("No books variable is found.")
-            exit(1)
+            perror("No books variable is found.")
         books = [Book(book, categories) for book in data['books']]
         self._check_books(books)
         return self._get_books_in_dates(books, self.from_date, self.to_date)
@@ -61,17 +59,16 @@ class Data:
     def _check_categories(self, categories):
         category_ids = [ category.id for category in categories ]
         if len(category_ids) != len(set(category_ids)):
-            print("Category ids must be unique.")
+            perror("Category ids must be unique.")
 
     # Error checking for books
     def _check_books(self, books):
         start_dates = [ book.start_date for book in books]
         if len(start_dates) != len(set(start_dates)):
-            print("Start dates must be unique.")
-            exit(1)
+            perror("Start dates must be unique.")
         finish_dates = [ book.finish_date for book in books]
         if len(finish_dates) != len(set(finish_dates)):
-            print("Finish dates must be unique.")
+            perror("Finish dates must be unique.")
             exit(1)
 
 '''
@@ -85,15 +82,13 @@ class Category:
             self.color = category['color']
 
         except KeyError:
-            print("This category is missing data: \n%s" %category)
-            exit(1)
+            perror("This category is missing data: \n%s" %category)
 
         # Error handling
         try:
             Color(self.color)
         except:
-            print("Error: Category '%s' has an invalid color." %(self.name))
-            exit(1)
+            perror("Category '%s' has an invalid color." %(self.name))
 
     def __str__(self):
         return "%s (%s)" % (self.name, self.color.upper())
@@ -115,8 +110,7 @@ class Book:
             self._check_date(self.title, self.finish_date)
 
         except KeyError:
-            print("This book is missing data: \n%s" %book)
-            exit(1)
+            perror("This book is missing data: \n%s" %book)
 
         # Optional fields
         self.publication_year = None
@@ -128,12 +122,10 @@ class Book:
 
         # Error handling
         if self.finish_date < self.start_date:
-            print("Book %s has been finished before started." % self.title)
-            exit(1)
+            perror("Book %s has been finished before started." % self.title)
         if self.publication_year is not None:
             if datetime.date(self.publication_year, 1, 1) > self.start_date:
-                print("Book %s has been published after started." % self.title)
-                exit(1)
+                perror("Book %s has been published after started." % self.title)
 
     def __str__(self):
         s = "%s by %s" % (self.title, self.author)
@@ -152,11 +144,10 @@ class Book:
         for cat in categories:
             if cat.id == category_id:
                 return cat
-        print("Warning: Category %s for book %s not defined" %(category_id, self.title))
+        pwarn("Category %s for book %s not defined" %(category_id, self.title))
         return None
 
     def _check_date(self, title, date):
         if(not isinstance(date, datetime.date)):
-            print("Error: Book %s has an invalid date '%s'." % (title, date))
-            exit(1)
+            perror("Book %s has an invalid date '%s'." % (title, date))
 

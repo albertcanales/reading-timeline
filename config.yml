@@ -3,6 +3,12 @@
 
 reverse_timeline: true
 
+# Fonts
+
+fonts:
+  - name: Galdeano
+    filename: fonts/Galdeano-Regular.ttf
+
 # Canvas
 
 canvas_size_x: 600
@@ -24,6 +30,7 @@ month_height: 53.0
 month_text_start_x: 1.06
 month_text_font_size: 4.23
 month_text_color: '#666666'
+month_text_font: Galdeano
 
 # Date
 
@@ -32,6 +39,7 @@ date_text_font_size: 3.7
 date_text_start_y: 6.75
 date_text_color: '#808080'
 date_text_anchor: 'end'
+date_text_font: Galdeano
 
 date_started_start_x: 14.58
 date_finished_start_x: 41.09
@@ -49,6 +57,7 @@ category_tip_radius: 1.72
 category_text_font_size: 3.7
 category_text_color: '#4d4d4d'
 category_text_padding: 3.2
+category_text_font: Galdeano
 
 # Book
 
@@ -57,5 +66,6 @@ book_line_width: 0.53
 
 book_text_start_x: 46.0
 book_text_line_spacing: 1.25
+book_text_font: Galdeano
 book_title_font_size: 4.23
 book_author_font_size: 3.7
