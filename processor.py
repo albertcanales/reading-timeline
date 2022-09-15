@@ -1,6 +1,8 @@
-import pandas as pd
+from utils import pwarn
+from pandas import date_range
 from collections import namedtuple
-import calendar
+from calendar import monthrange
+from math import ceil
 
 ProcessedMonth = namedtuple("ProcessedMonth", "text text_y line_y")
 ProcessedCategory = namedtuple("ProcessedCategory", "name color start_y")
@@ -18,7 +20,7 @@ class Processor:
     # Sets the ProcessedMonth list of the object
     def _process_months(self, data, c):
         min_date, max_date = data.get_min_date(data.books), data.get_max_date(data.books)
-        months_text = pd.date_range(min_date, max_date, freq='MS').strftime("%m/%y").tolist()
+        months_text = date_range(min_date, max_date, freq='MS').strftime("%m/%y").tolist()
         if int(min_date.strftime('%d')) > 1:
             months_text = [ min_date.strftime("%m/%y") ] + months_text
         if c.reverse_timeline:
@@ -42,12 +44,51 @@ class Processor:
     # Sets the ProcessedBook list of the object
     def _process_books(self, data, c):
         self.books = [ ProcessedBook(book, self.months, c) for book in data.books]
+        self._check_book_collisions(c)
 
     # Sets the rest of parameters that require processing
     def _process_other(self, data, c):
         self.timeline_end_y = c.month_line_start_y + len(self.months) * c.month_height
         self.category_line_end_x = c.category_line_start_x + c.category_line_length
         self.category_text_start_x = self.category_line_end_x + c.category_text_padding
+        self.canvas_size_y = self.timeline_end_y + c.canvas_padding_bottom * c.canvas_zoom
+
+    def _check_book_collisions(self, c):
+
+        # Find minimum separation between starting tips
+        min_y = self._get_min_separation(lambda x: x.start_y)
+
+        if min_y < 2 * c.book_tip_radius:
+            new_min_y = 2 * c.book_tip_radius * c.month_height / min_y
+            pwarn(("Book tips are colliding. To prevent it, you may:\n" +
+                  " - Increase month_height to at least %.2f\n" +
+                  " - Decrease book_tip_radius to at most %.2f\n" +
+                  " - Change the dates further apart")
+                % ( ceil( new_min_y * 100) / 100.0, min_y / 2) )
+
+        # Find minimum separation between book labels
+        min_y = self._get_min_separation(lambda x: x.finish_y)
+        text_height = c.book_title_font_size * c.book_text_line_spacing + c.book_author_font_size 
+
+        if min_y < text_height:
+            new_min_y = text_height * c.month_height / min_y
+            pwarn(("Book labels are colliding. To prevent it, you may:\n" +
+                  " - Increase month_height to at least %.2f\n" +
+                  " - Decrease title or subtitle font size\n" +
+                  " - Change the dates further apart")
+                % ( ceil( new_min_y * 100) / 100.0) )
+
+    def _get_min_separation(self, map):
+        books = sorted(self.books, key=map)
+        min_y = float('inf')
+        i = 1
+        while i < len(self.books):
+            y = abs(map(books[i]) - map(books[i-1]))
+            if y > 0:
+                min_y = min(min_y, y)
+            i += 1
+        return min_y
+
 
 class ProcessedBook:
     def __init__(self, book, months, c):
@@ -69,7 +110,7 @@ class ProcessedBook:
     # Returns the tip's y-coordinate for a given date
     def _get_y(self, date, months, c):
         month_y = self._get_processed_month(date.strftime("%m/%y"), months).line_y - c.month_height
-        month_len = calendar.monthrange(date.year, date.month)[1]
+        month_len = monthrange(date.year, date.month)[1]
         month_prop = (int(date.strftime("%d"))-1) / month_len
         if c.reverse_timeline:
             month_prop = 1 - month_prop

@@ -13,8 +13,9 @@ param_types = {
     'book_text_start_x': float,
     'book_tip_radius': float,
     'book_title_font_size': float,
-    'canvas_size_x': int,
-    'canvas_size_y': int,
+    'canvas_padding_bottom': float,
+    'canvas_size_x': float,
+    'canvas_zoom': float,
     'category_default_color': Color,
     'category_line_length': float,
     'category_line_start_x': float,
@@ -64,7 +65,8 @@ class Config:
                 except ValueError:
                     perror("Parameter %s is not a valid color." %(p))
             elif not isinstance(params[p], param_types[p]):
-                perror("Parameter '%s' should be of type %s." %(p, param_types[p].__name__))
+                if param_types[p] != float or not isinstance(params[p], int):
+                    perror("Parameter '%s' should be of type %s." %(p, param_types[p].__name__))
             setattr(self, p, params[p])
 
         # Fonts

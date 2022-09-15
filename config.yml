@@ -11,8 +11,9 @@ fonts:
 
 # Canvas
 
-canvas_size_x: 600
-canvas_size_y: 5100
+canvas_zoom: 5.0
+canvas_size_x: 700.0
+canvas_padding_bottom: 1
 
 # Timeline
 

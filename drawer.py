@@ -1,7 +1,7 @@
 import svgwrite
 
 def draw(path, c, p):
-    dwg = svgwrite.Drawing(path, (c.canvas_size_x, c.canvas_size_y), viewBox="0 0 158.75 1349.3751")
+    dwg = svgwrite.Drawing(path, (c.canvas_size_x, p.canvas_size_y*c.canvas_zoom), viewBox="0 0 %d %d" %(c.canvas_size_x/c.canvas_zoom, p.canvas_size_y))
     dwg = draw_grid(dwg, c, p)
     for font in c.fonts:
         dwg.embed_font(name=font.name, filename=font.filename)

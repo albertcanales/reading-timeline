@@ -65,11 +65,10 @@ class Data:
     def _check_books(self, books):
         start_dates = [ book.start_date for book in books]
         if len(start_dates) != len(set(start_dates)):
-            perror("Start dates must be unique.")
+            warn("Unique start dates are recommended for visual clearance.")
         finish_dates = [ book.finish_date for book in books]
         if len(finish_dates) != len(set(finish_dates)):
-            perror("Finish dates must be unique.")
-            exit(1)
+            pwarn("Unique finish dates are recommended for visual clearance.")
 
 '''
 Represents an element from the categories YAML variable
@@ -138,7 +137,7 @@ class Book:
 
     def is_in_range(self, from_date, to_date):
         return (from_date is None or from_date <= self.start_date) \
-            and (to_date is None or to_date >= self.finish_date) 
+            and (to_date is None or to_date >= self.finish_date)
 
     def _get_category(self, category_id, categories):
         for cat in categories:
