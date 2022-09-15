@@ -1,4 +1,4 @@
-from utils import perror
+import logging as log
 from colour import Color
 from collections import namedtuple
 
@@ -58,15 +58,15 @@ class Config:
         # Params
         for p in param_types.keys():
             if p not in params:
-                perror("Missing parameter '%s'." % p)
+                log.error("Missing parameter '%s'." % p)
             if param_types[p] == Color:
                 try:
                     Color(params[p])
                 except ValueError:
-                    perror("Parameter %s is not a valid color." %(p))
+                    log.error("Parameter %s is not a valid color." %(p))
             elif not isinstance(params[p], param_types[p]):
                 if param_types[p] != float or not isinstance(params[p], int):
-                    perror("Parameter '%s' should be of type %s." %(p, param_types[p].__name__))
+                    log.error("Parameter '%s' should be of type %s." %(p, param_types[p].__name__))
             setattr(self, p, params[p])
 
         # Fonts
@@ -74,17 +74,17 @@ class Config:
 
         if 'fonts' in params:
             if not isinstance(params['fonts'], list):
-                perror("Variable 'fonts' must be a list.")
+                log.error("Variable 'fonts' must be a list.")
             for item in params['fonts']:
                 if 'name' not in item:
-                    perror("A font is missing name")
+                    log.error("A font is missing name")
                 if 'filename' not in item:
-                    perror("A font is missing filename")
+                    log.error("A font is missing filename")
                 font = Font(item['name'], item['filename'])
                 try:
                     open(font.filename, 'r')
                 except OSError:
-                    perror("Font on '%s' cannot be read." % font.filename)
+                    log.error("Font on '%s' cannot be read." % font.filename)
                 self.fonts.append(font)
 
         # Check param fonts
@@ -92,4 +92,4 @@ class Config:
                         self.category_text_font, self.book_text_font ]:
             if font not in [ item.name for item in self.fonts ]:
                 print(font)
-                perror("Font not found in fonts variable.")
+                log.error("Font not found in fonts variable.")

@@ -1,4 +1,4 @@
-from utils import pwarn
+import logging as log
 from pandas import date_range
 from collections import namedtuple
 from calendar import monthrange
@@ -60,7 +60,7 @@ class Processor:
 
         if min_y < 2 * c.book_tip_radius:
             new_min_y = 2 * c.book_tip_radius * c.month_height / min_y
-            pwarn(("Book tips are colliding. To prevent it, you may:\n" +
+            log.warning(("Book tips are colliding. To prevent it, you may:\n" +
                   " - Increase month_height to at least %.2f\n" +
                   " - Decrease book_tip_radius to at most %.2f\n" +
                   " - Change the dates further apart")
@@ -72,7 +72,7 @@ class Processor:
 
         if min_y < text_height:
             new_min_y = text_height * c.month_height / min_y
-            pwarn(("Book labels are colliding. To prevent it, you may:\n" +
+            log.warning(("Book labels are colliding. To prevent it, you may:\n" +
                   " - Increase month_height to at least %.2f\n" +
                   " - Decrease title or subtitle font size\n" +
                   " - Change the dates further apart")
