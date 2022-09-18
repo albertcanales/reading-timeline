@@ -1,6 +1,11 @@
 ---
+# This file contains the default rendering parameters
+# Play around and modify them to best fit your liking!
+
+
 # Misc
 
+# If true, most recent dates will be on top
 reverse_timeline: true
 
 # Fonts
@@ -47,7 +52,7 @@ date_finished_start_x: 41.09
 
 # Category
 
-category_default_color: '#2a7fff'
+category_default_color: '#bebdb8'
 category_start_y: 5.54
 category_vertical_spacing: 4.48
 category_line_start_x: 69.21
@@ -66,7 +71,7 @@ book_tip_radius: 1.72
 book_line_width: 0.53
 
 book_text_start_x: 46.0
-book_text_line_spacing: 1.25
+book_text_line_spacing: 1.1
 book_text_font: Galdeano
 book_title_font_size: 4.23
 book_author_font_size: 3.7

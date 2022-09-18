@@ -8,7 +8,7 @@ import logging as log
 
 data_file = 'data.yml'
 config_file = 'config.yml'
-output_file = 'render.svg'
+output_file = 'output.svg'
 
 # Returns the dictionary from the given yaml file path
 def read_yaml(path):
