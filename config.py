@@ -59,14 +59,17 @@ class Config:
         for p in param_types.keys():
             if p not in params:
                 log.error("Missing parameter '%s'." % p)
+                exit(1)
             if param_types[p] == Color:
                 try:
                     Color(params[p])
                 except ValueError:
                     log.error("Parameter %s is not a valid color." %(p))
+                    exit(1)
             elif not isinstance(params[p], param_types[p]):
                 if param_types[p] != float or not isinstance(params[p], int):
                     log.error("Parameter '%s' should be of type %s." %(p, param_types[p].__name__))
+                    exit(1)
             setattr(self, p, params[p])
 
         # Fonts
@@ -75,16 +78,20 @@ class Config:
         if 'fonts' in params:
             if not isinstance(params['fonts'], list):
                 log.error("Variable 'fonts' must be a list.")
+                exit(1)
             for item in params['fonts']:
                 if 'name' not in item:
                     log.error("A font is missing name")
+                    exit(1)
                 if 'filename' not in item:
                     log.error("A font is missing filename")
+                    exit(1)
                 font = Font(item['name'], item['filename'])
                 try:
                     open(font.filename, 'r')
                 except OSError:
                     log.error("Font on '%s' cannot be read." % font.filename)
+                    exit(1)
                 self.fonts.append(font)
 
         # Check param fonts
@@ -93,3 +100,4 @@ class Config:
             if font not in [ item.name for item in self.fonts ]:
                 print(font)
                 log.error("Font not found in fonts variable.")
+                exit(1)

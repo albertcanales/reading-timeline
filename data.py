@@ -38,6 +38,7 @@ class Data:
         if 'categories' in data.keys():
             if not isinstance(data['categories'], list):
                 log.error("The categories variable must be a list.")
+                exit(1)
             categories = [Category(category) for category in data['categories']]
             self._check_categories(categories)
             return categories
@@ -49,8 +50,10 @@ class Data:
         try:
             if not isinstance(data['books'], list):
                 log.error("The books variable must be a list.")
+                exit(1)
         except TypeError:
             log.error("No books variable is found.")
+            exit(1)
         books = [Book(book, categories) for book in data['books']]
         self._check_books(books)
         return self._get_books_in_dates(books, self.from_date, self.to_date)
@@ -60,6 +63,7 @@ class Data:
         category_ids = [ category.id for category in categories ]
         if len(category_ids) != len(set(category_ids)):
             log.error("Category ids must be unique.")
+            exit(1)
 
     # Error checking for books
     def _check_books(self, books):
@@ -82,12 +86,14 @@ class Category:
 
         except KeyError:
             log.error("This category is missing data: \n%s" %category)
+            exit(1)
 
         # Error handling
         try:
             Color(self.color)
         except:
             log.error("Category '%s' has an invalid color." %(self.name))
+            exit(1)
 
     def __str__(self):
         return "%s (%s)" % (self.name, self.color.upper())
@@ -110,6 +116,7 @@ class Book:
 
         except KeyError:
             log.error("This book is missing data: \n%s" %book)
+            exit(1)
 
         # Optional fields
         self.publication_year = None
@@ -122,9 +129,11 @@ class Book:
         # Error handling
         if self.finish_date < self.start_date:
             log.error("Book %s has been finished before started." % self.title)
+            exit(1)
         if self.publication_year is not None:
             if datetime.date(self.publication_year, 1, 1) > self.start_date:
                 log.error("Book %s has been published after started." % self.title)
+                exit(1)
 
     def __str__(self):
         s = "%s by %s" % (self.title, self.author)
@@ -149,4 +158,4 @@ class Book:
     def _check_date(self, title, date):
         if(not isinstance(date, datetime.date)):
             log.error("Book %s has an invalid date '%s'." % (title, date))
-
+            exit(1)
