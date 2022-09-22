@@ -16,6 +16,7 @@ fonts:
 
 # Canvas
 
+canvas_background_color: '#ffffff'
 canvas_zoom: 5.0
 canvas_size_x: 600.0
 canvas_padding_bottom: 1

@@ -13,6 +13,7 @@ param_types = {
     'book_text_start_x': float,
     'book_tip_radius': float,
     'book_title_font_size': float,
+    'canvas_background_color': Color,
     'canvas_padding_bottom': float,
     'canvas_size_x': float,
     'canvas_zoom': float,
