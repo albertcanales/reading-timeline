@@ -26,7 +26,7 @@ except ModuleNotFoundError:
 
 data_file = 'data.yml'
 config_file = 'config.yml'
-output_file = 'output.svg'
+output_file = 'timeline.svg'
 
 # Returns the dictionary from the given yaml file path
 def read_yaml(path):
