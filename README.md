@@ -1,6 +1,10 @@
 # Reading Timeline
 
-Visualise your readings with an automatically generated timeline [like this one](timeline.svg).
+Visualise your readings with an automatically generated timeline.
+
+<p align="center">
+	<img src="timeline.svg" height="1000">
+</p>
 
 ## Getting Started
 
@@ -11,7 +15,7 @@ Reading Timeline is intended to work without the need to access or modify the so
 
 These files should be self-explanatory, so feel free to play around to fully  customise your timeline.
 
-Further explanation on how the program works will soon be available on [my website](https://albertcanales.com)
+Further explanation on how the program works will soon be available on [my website](https://www.albertcanales.com)
 
 ## Prerequisites
 
