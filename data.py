@@ -69,7 +69,7 @@ class Data:
     def _check_books(self, books):
         start_dates = [ book.start_date for book in books]
         if len(start_dates) != len(set(start_dates)):
-            warn("Unique start dates are recommended for visual clearance.")
+            log.warning("Unique start dates are recommended for visual clearance.")
         finish_dates = [ book.finish_date for book in books]
         if len(finish_dates) != len(set(finish_dates)):
             log.warning("Unique finish dates are recommended for visual clearance.")
