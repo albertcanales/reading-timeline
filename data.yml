@@ -40,6 +40,7 @@ books:
     author: Andrew S. Tanenbaum
     started: 2022-04-23
     finished: 2022-05-01
+    link: https://github.com/albertcanales/learning-notes/blob/main/books/modern-operating-systems.md
     score: 9
     category: programming
 
@@ -73,6 +74,7 @@ books:
     author: Brandon Sanderson
     started: 2022-07-07
     finished: 2022-07-13
+    link: https://www.brandonsanderson.com/
     category: fantasy
 
   - title: Fahrenheit 451
@@ -113,6 +115,7 @@ books:
     author: J. R. R. Tolkien
     started: 2022-08-04
     finished: 2022-09-03
+    link: https://www.youtube.com/@NerdoftheRings
     score: 10
     category: fantasy
 
@@ -120,6 +123,7 @@ books:
     author: Stephen King
     started: 2022-08-20
     finished: 2022-08-22
+    link: https://www.imdb.com/title/tt0081505/
     category: horror
 
   - title: Pride and Prejudice

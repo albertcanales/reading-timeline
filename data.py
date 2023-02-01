@@ -129,6 +129,9 @@ class Book:
         if 'score' in book.keys():
             self.score = book['score']
             self._check_score(self.title, self.score)
+        self.link = None
+        if 'link' in book.keys():
+            self.link = book['link']
 
         # Error handling
         if self.finish_date < self.start_date:

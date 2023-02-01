@@ -50,7 +50,7 @@ def draw_category(dwg, category, c, p):
     return dwg
 
 # Helper function to draw half points on scores
-def score_semicircle(svg, position, radius, color):
+def score_semicircle(dwg, position, radius, color):
     args = {'x0': position[0],
             'y0': position[1] - radius,
             'x1': position[0],
@@ -60,7 +60,7 @@ def score_semicircle(svg, position, radius, color):
     path = """M %(x0)f,%(y0)f
               A %(radius)f,%(radius)f 0 0,0 %(x1)f,%(y1)f
     """ % args
-    return svg.path(d=path, fill=color)
+    return dwg.path(d=path, fill=color)
 
 def draw_score(dwg, x, y, book, c):
     padding = 2*c.category_tip_radius + c.book_score_padding
@@ -83,10 +83,17 @@ def draw_book(dwg, book, c):
 
     # Title and subtitle
     dy = c.book_title_font_size * c.book_text_line_spacing
-    text = dwg.text("", insert=(c.book_text_start_x, book.finish_y), dominant_baseline="central", font_family=c.book_text_font, fill=c.book_text_color)
+    style = 'italic' if book.link is not None else 'normal'
+    text = dwg.text("", insert=(c.book_text_start_x, book.finish_y), dominant_baseline="central", font_family=c.book_text_font, fill=c.book_text_color, font_style=style)
     text.add(dwg.tspan(book.title, font_weight='bold', font_size=str(c.book_title_font_size)+'px'))
     text.add(dwg.tspan(book.subtitle, x=[c.book_text_start_x], dy=[str(dy)+"px"], font_size=str(c.book_author_font_size)+'px'))
-    dwg.add(text)
+
+    # Link
+    if book.link is not None:
+        link = dwg.add(dwg.a(book.link))
+        link.add(text)
+    else:
+        dwg.add(text)
 
     # Score
     if book.score is not None:

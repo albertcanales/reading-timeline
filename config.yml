@@ -53,6 +53,7 @@ date_finished_start_x: 41.09
 
 # Category
 
+category_hide_unused: true
 category_default_color: '#bebdb8'
 category_start_y: 5.54
 category_vertical_spacing: 4.48
@@ -82,5 +83,6 @@ book_score_outer_radius: 1.72
 book_score_inner_radius: 1.12
 book_score_padding: 0.5
 # If true, takes the color of the book's category
-# If false, takes the color book_text_color
+# If false, takes the color book_score_color
 book_score_colored: true
+book_score_color: '#000000'

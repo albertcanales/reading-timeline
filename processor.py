@@ -38,9 +38,11 @@ class Processor:
     def _process_categories(self, data, c):
         y = c.category_start_y
         self.categories = []
+        used_categories = {book.category for book in data.books}
         for category in data.categories:
-            self.categories.append(ProcessedCategory(category.name, category.color, y))
-            y += c.category_vertical_spacing
+            if not c.category_hide_unused or category in used_categories:
+                self.categories.append(ProcessedCategory(category.name, category.color, y))
+                y += c.category_vertical_spacing
 
     # Sets the ProcessedBook list of the object
     def _process_books(self, data, c):
@@ -104,7 +106,8 @@ class ProcessedBook:
         if book.score is not None:
             self.score = book.score / 2
             self.score_x = c.book_text_start_x + self._get_textwidth(self.subtitle, c.book_author_font_size, c.book_text_font)
-            self.score_color = self.color if c.book_score_colored else c.book_text_color
+            self.score_color = self.color if c.book_score_colored else c.book_score_color
+        self.link = book.link
 
     # Returns the subtitle text for a given book
     def _get_subtitle(self, book):
