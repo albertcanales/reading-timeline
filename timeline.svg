@@ -48,151 +48,77 @@
   <line stroke="#50fa7b" stroke-width="0.53" x1="15.875" x2="42.33" y1="319.45000000000005" y2="261.833870967742"/>
   <circle cx="15.875" cy="319.45000000000005" fill="#50fa7b" r="1.72"/>
   <circle cx="42.33" cy="261.833870967742" fill="#50fa7b" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="261.833870967742">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="261.833870967742">
     <tspan font-size="4.23px" font-weight="bold">Guns, Germs, and Steel</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Jared Diamond</tspan>
   </text>
-  <circle cx="73.242333984375" cy="266.486870967742" fill="#50fa7b" r="1.72"/>
-  <circle cx="77.18233398437499" cy="266.486870967742" fill="#50fa7b" r="1.72"/>
-  <circle cx="81.12233398437499" cy="266.486870967742" fill="#50fa7b" r="1.72"/>
-  <circle cx="81.12233398437499" cy="266.486870967742" fill="#ffffff" r="1.12"/>
-  <path d="M 81.122334,265.066871
-              A 1.420000,1.420000 0 0,0 81.122334,267.906871
-    " fill="#50fa7b"/>
-  <circle cx="85.06233398437499" cy="266.486870967742" fill="#50fa7b" r="1.72"/>
-  <circle cx="85.06233398437499" cy="266.486870967742" fill="#ffffff" r="1.12"/>
-  <circle cx="89.00233398437499" cy="266.486870967742" fill="#50fa7b" r="1.72"/>
-  <circle cx="89.00233398437499" cy="266.486870967742" fill="#ffffff" r="1.12"/>
   <line stroke="#bebdb8" stroke-width="0.53" x1="15.875" x2="42.33" y1="296.48333333333335" y2="282.35"/>
   <circle cx="15.875" cy="296.48333333333335" fill="#bebdb8" r="1.72"/>
   <circle cx="42.33" cy="282.35" fill="#bebdb8" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="282.35">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="282.35">
     <tspan font-size="4.23px" font-weight="bold">Modern Operating Systems</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Andrew S. Tanenbaum</tspan>
   </text>
   <circle cx="87.641259765625" cy="287.00300000000004" fill="#bebdb8" r="1.72"/>
   <circle cx="91.58125976562499" cy="287.00300000000004" fill="#bebdb8" r="1.72"/>
   <circle cx="95.52125976562499" cy="287.00300000000004" fill="#bebdb8" r="1.72"/>
-  <circle cx="95.52125976562499" cy="287.00300000000004" fill="#ffffff" r="1.12"/>
-  <path d="M 95.521260,285.583000
-              A 1.420000,1.420000 0 0,0 95.521260,288.423000
-    " fill="#bebdb8"/>
   <circle cx="99.46125976562499" cy="287.00300000000004" fill="#bebdb8" r="1.72"/>
-  <circle cx="99.46125976562499" cy="287.00300000000004" fill="#ffffff" r="1.12"/>
   <circle cx="103.40125976562499" cy="287.00300000000004" fill="#bebdb8" r="1.72"/>
   <circle cx="103.40125976562499" cy="287.00300000000004" fill="#ffffff" r="1.12"/>
+  <path d="M 103.401260,285.583000
+              A 1.420000,1.420000 0 0,0 103.401260,288.423000
+    " fill="#bebdb8"/>
   <line stroke="#2a7fff" stroke-width="0.53" x1="15.875" x2="42.33" y1="280.6403225806452" y2="272.091935483871"/>
   <circle cx="15.875" cy="280.6403225806452" fill="#2a7fff" r="1.72"/>
   <circle cx="42.33" cy="272.091935483871" fill="#2a7fff" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="272.091935483871">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="272.091935483871">
     <tspan font-size="4.23px" font-weight="bold">1984</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">George Orwell</tspan>
   </text>
-  <circle cx="71.966845703125" cy="276.744935483871" fill="#2a7fff" r="1.72"/>
-  <circle cx="75.906845703125" cy="276.744935483871" fill="#2a7fff" r="1.72"/>
-  <circle cx="79.846845703125" cy="276.744935483871" fill="#2a7fff" r="1.72"/>
-  <circle cx="79.846845703125" cy="276.744935483871" fill="#ffffff" r="1.12"/>
-  <path d="M 79.846846,275.324935
-              A 1.420000,1.420000 0 0,0 79.846846,278.164935
-    " fill="#2a7fff"/>
-  <circle cx="83.786845703125" cy="276.744935483871" fill="#2a7fff" r="1.72"/>
-  <circle cx="83.786845703125" cy="276.744935483871" fill="#ffffff" r="1.12"/>
-  <circle cx="87.726845703125" cy="276.744935483871" fill="#2a7fff" r="1.72"/>
-  <circle cx="87.726845703125" cy="276.744935483871" fill="#ffffff" r="1.12"/>
   <line stroke="#ff1694" stroke-width="0.53" x1="15.875" x2="42.33" y1="186.95" y2="185.18333333333334"/>
   <circle cx="15.875" cy="186.95" fill="#ff1694" r="1.72"/>
   <circle cx="42.33" cy="185.18333333333334" fill="#ff1694" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="185.18333333333334">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="185.18333333333334">
     <tspan font-size="4.23px" font-weight="bold">The Fault in Our Stars</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">John Green</tspan>
   </text>
-  <circle cx="66.384326171875" cy="189.83633333333333" fill="#ff1694" r="1.72"/>
-  <circle cx="70.324326171875" cy="189.83633333333333" fill="#ff1694" r="1.72"/>
-  <circle cx="74.264326171875" cy="189.83633333333333" fill="#ff1694" r="1.72"/>
-  <circle cx="74.264326171875" cy="189.83633333333333" fill="#ffffff" r="1.12"/>
-  <path d="M 74.264326,188.416333
-              A 1.420000,1.420000 0 0,0 74.264326,191.256333
-    " fill="#ff1694"/>
-  <circle cx="78.204326171875" cy="189.83633333333333" fill="#ff1694" r="1.72"/>
-  <circle cx="78.204326171875" cy="189.83633333333333" fill="#ffffff" r="1.12"/>
-  <circle cx="82.144326171875" cy="189.83633333333333" fill="#ff1694" r="1.72"/>
-  <circle cx="82.144326171875" cy="189.83633333333333" fill="#ffffff" r="1.12"/>
   <line stroke="#ffd801" stroke-width="0.53" x1="15.875" x2="42.33" y1="244.73709677419356" y2="209.91666666666666"/>
   <circle cx="15.875" cy="244.73709677419356" fill="#ffd801" r="1.72"/>
   <circle cx="42.33" cy="209.91666666666666" fill="#ffd801" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="209.91666666666666">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="209.91666666666666">
     <tspan font-size="4.23px" font-weight="bold">The Call of Cthulhu</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">H. P. Lovecraft</tspan>
   </text>
-  <circle cx="72.63349609375001" cy="214.56966666666665" fill="#ffd801" r="1.72"/>
-  <circle cx="76.57349609375001" cy="214.56966666666665" fill="#ffd801" r="1.72"/>
-  <circle cx="80.51349609375" cy="214.56966666666665" fill="#ffd801" r="1.72"/>
-  <circle cx="80.51349609375" cy="214.56966666666665" fill="#ffffff" r="1.12"/>
-  <path d="M 80.513496,213.149667
-              A 1.420000,1.420000 0 0,0 80.513496,215.989667
-    " fill="#ffd801"/>
-  <circle cx="84.45349609375" cy="214.56966666666665" fill="#ffd801" r="1.72"/>
-  <circle cx="84.45349609375" cy="214.56966666666665" fill="#ffffff" r="1.12"/>
-  <circle cx="88.39349609375" cy="214.56966666666665" fill="#ffd801" r="1.72"/>
-  <circle cx="88.39349609375" cy="214.56966666666665" fill="#ffffff" r="1.12"/>
   <line stroke="#2a7fff" stroke-width="0.53" x1="15.875" x2="42.33" y1="174.64032258064515" y2="167.80161290322582"/>
   <circle cx="15.875" cy="174.64032258064515" fill="#2a7fff" r="1.72"/>
   <circle cx="42.33" cy="167.80161290322582" fill="#2a7fff" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="167.80161290322582">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="167.80161290322582">
     <tspan font-size="4.23px" font-weight="bold">Caliban</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Roger MacBride Allen</tspan>
   </text>
   <circle cx="85.07041015625" cy="172.4546129032258" fill="#2a7fff" r="1.72"/>
   <circle cx="89.01041015625" cy="172.4546129032258" fill="#2a7fff" r="1.72"/>
   <circle cx="92.95041015625" cy="172.4546129032258" fill="#2a7fff" r="1.72"/>
-  <circle cx="92.95041015625" cy="172.4546129032258" fill="#ffffff" r="1.12"/>
-  <path d="M 92.950410,171.034613
-              A 1.420000,1.420000 0 0,0 92.950410,173.874613
-    " fill="#2a7fff"/>
   <circle cx="96.89041015625" cy="172.4546129032258" fill="#2a7fff" r="1.72"/>
-  <circle cx="96.89041015625" cy="172.4546129032258" fill="#ffffff" r="1.12"/>
   <circle cx="100.83041015625" cy="172.4546129032258" fill="#2a7fff" r="1.72"/>
-  <circle cx="100.83041015625" cy="172.4546129032258" fill="#ffffff" r="1.12"/>
   <line stroke="#ff5555" stroke-width="0.53" x1="15.875" x2="42.33" y1="166.09193548387097" y2="155.83387096774192"/>
   <circle cx="15.875" cy="166.09193548387097" fill="#ff5555" r="1.72"/>
   <circle cx="42.33" cy="155.83387096774192" fill="#ff5555" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="155.83387096774192">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="155.83387096774192">
     <tspan font-size="4.23px" font-weight="bold">Mistborn</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Brandon Sanderson</tspan>
   </text>
-  <circle cx="81.771484375" cy="160.4868709677419" fill="#ff5555" r="1.72"/>
-  <circle cx="85.711484375" cy="160.4868709677419" fill="#ff5555" r="1.72"/>
-  <circle cx="89.651484375" cy="160.4868709677419" fill="#ff5555" r="1.72"/>
-  <circle cx="89.651484375" cy="160.4868709677419" fill="#ffffff" r="1.12"/>
-  <path d="M 89.651484,159.066871
-              A 1.420000,1.420000 0 0,0 89.651484,161.906871
-    " fill="#ff5555"/>
-  <circle cx="93.591484375" cy="160.4868709677419" fill="#ff5555" r="1.72"/>
-  <circle cx="93.591484375" cy="160.4868709677419" fill="#ffffff" r="1.12"/>
-  <circle cx="97.53148437499999" cy="160.4868709677419" fill="#ff5555" r="1.72"/>
-  <circle cx="97.53148437499999" cy="160.4868709677419" fill="#ffffff" r="1.12"/>
   <line stroke="#2a7fff" stroke-width="0.53" x1="15.875" x2="42.33" y1="148.99516129032259" y2="145.5758064516129"/>
   <circle cx="15.875" cy="148.99516129032259" fill="#2a7fff" r="1.72"/>
   <circle cx="42.33" cy="145.5758064516129" fill="#2a7fff" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="145.5758064516129">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="145.5758064516129">
     <tspan font-size="4.23px" font-weight="bold">Fahrenheit 451</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Ray Bradbury</tspan>
   </text>
-  <circle cx="70.810595703125" cy="150.22880645161288" fill="#2a7fff" r="1.72"/>
-  <circle cx="74.750595703125" cy="150.22880645161288" fill="#2a7fff" r="1.72"/>
-  <circle cx="78.690595703125" cy="150.22880645161288" fill="#2a7fff" r="1.72"/>
-  <circle cx="78.690595703125" cy="150.22880645161288" fill="#ffffff" r="1.12"/>
-  <path d="M 78.690596,148.808806
-              A 1.420000,1.420000 0 0,0 78.690596,151.648806
-    " fill="#2a7fff"/>
-  <circle cx="82.630595703125" cy="150.22880645161288" fill="#2a7fff" r="1.72"/>
-  <circle cx="82.630595703125" cy="150.22880645161288" fill="#ffffff" r="1.12"/>
-  <circle cx="86.570595703125" cy="150.22880645161288" fill="#2a7fff" r="1.72"/>
-  <circle cx="86.570595703125" cy="150.22880645161288" fill="#ffffff" r="1.12"/>
   <line stroke="#ffd801" stroke-width="0.53" x1="15.875" x2="42.33" y1="143.86612903225807" y2="133.60806451612902"/>
   <circle cx="15.875" cy="143.86612903225807" fill="#ffd801" r="1.72"/>
   <circle cx="42.33" cy="133.60806451612902" fill="#ffd801" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="133.60806451612902">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="133.60806451612902">
     <tspan font-size="4.23px" font-weight="bold">Dracula</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Bram Stoker</tspan>
   </text>
@@ -210,53 +136,42 @@
   <line stroke="#ff1694" stroke-width="0.53" x1="15.875" x2="42.33" y1="128.4790322580645" y2="123.35"/>
   <circle cx="15.875" cy="128.4790322580645" fill="#ff1694" r="1.72"/>
   <circle cx="42.33" cy="123.35" fill="#ff1694" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="123.35">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="123.35">
     <tspan font-size="4.23px" font-weight="bold">Wuthering Heights</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Emily Brontë</tspan>
   </text>
   <circle cx="69.199072265625" cy="128.003" fill="#ff1694" r="1.72"/>
   <circle cx="73.139072265625" cy="128.003" fill="#ff1694" r="1.72"/>
   <circle cx="77.079072265625" cy="128.003" fill="#ff1694" r="1.72"/>
-  <circle cx="77.079072265625" cy="128.003" fill="#ffffff" r="1.12"/>
-  <path d="M 77.079072,126.583000
-              A 1.420000,1.420000 0 0,0 77.079072,129.423000
-    " fill="#ff1694"/>
   <circle cx="81.019072265625" cy="128.003" fill="#ff1694" r="1.72"/>
   <circle cx="81.019072265625" cy="128.003" fill="#ffffff" r="1.12"/>
+  <path d="M 81.019072,126.583000
+              A 1.420000,1.420000 0 0,0 81.019072,129.423000
+    " fill="#ff1694"/>
   <circle cx="84.959072265625" cy="128.003" fill="#ff1694" r="1.72"/>
   <circle cx="84.959072265625" cy="128.003" fill="#ffffff" r="1.12"/>
   <line stroke="#ffd801" stroke-width="0.53" x1="15.875" x2="42.33" y1="138.73709677419353" y2="113.09193548387097"/>
   <circle cx="15.875" cy="138.73709677419353" fill="#ffd801" r="1.72"/>
   <circle cx="42.33" cy="113.09193548387097" fill="#ffd801" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="113.09193548387097">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="113.09193548387097">
     <tspan font-size="4.23px" font-weight="bold">Frankenstein</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Mary Shelley</tspan>
   </text>
-  <circle cx="69.365283203125" cy="117.74493548387098" fill="#ffd801" r="1.72"/>
-  <circle cx="73.305283203125" cy="117.74493548387098" fill="#ffd801" r="1.72"/>
-  <circle cx="77.245283203125" cy="117.74493548387098" fill="#ffd801" r="1.72"/>
-  <circle cx="77.245283203125" cy="117.74493548387098" fill="#ffffff" r="1.12"/>
-  <path d="M 77.245283,116.324935
-              A 1.420000,1.420000 0 0,0 77.245283,119.164935
-    " fill="#ffd801"/>
-  <circle cx="81.185283203125" cy="117.74493548387098" fill="#ffd801" r="1.72"/>
-  <circle cx="81.185283203125" cy="117.74493548387098" fill="#ffffff" r="1.12"/>
-  <circle cx="85.125283203125" cy="117.74493548387098" fill="#ffd801" r="1.72"/>
-  <circle cx="85.125283203125" cy="117.74493548387098" fill="#ffffff" r="1.12"/>
   <line stroke="#50fa7b" stroke-width="0.53" x1="15.875" x2="42.33" y1="119.93064516129033" y2="97.70483870967742"/>
   <circle cx="15.875" cy="119.93064516129033" fill="#50fa7b" r="1.72"/>
   <circle cx="42.33" cy="97.70483870967742" fill="#50fa7b" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="97.70483870967742">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="97.70483870967742">
     <tspan font-size="4.23px" font-weight="bold">The History of the Ancient World</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Susan Wise Bauer</tspan>
   </text>
   <circle cx="79.18076171875" cy="102.35783870967742" fill="#50fa7b" r="1.72"/>
   <circle cx="83.12076171875" cy="102.35783870967742" fill="#50fa7b" r="1.72"/>
+  <circle cx="83.12076171875" cy="102.35783870967742" fill="#ffffff" r="1.12"/>
+  <path d="M 83.120762,100.937839
+              A 1.420000,1.420000 0 0,0 83.120762,103.777839
+    " fill="#50fa7b"/>
   <circle cx="87.06076171875" cy="102.35783870967742" fill="#50fa7b" r="1.72"/>
   <circle cx="87.06076171875" cy="102.35783870967742" fill="#ffffff" r="1.12"/>
-  <path d="M 87.060762,100.937839
-              A 1.420000,1.420000 0 0,0 87.060762,103.777839
-    " fill="#50fa7b"/>
   <circle cx="91.00076171875" cy="102.35783870967742" fill="#50fa7b" r="1.72"/>
   <circle cx="91.00076171875" cy="102.35783870967742" fill="#ffffff" r="1.12"/>
   <circle cx="94.94076171875" cy="102.35783870967742" fill="#50fa7b" r="1.72"/>
@@ -264,91 +179,47 @@
   <line stroke="#ff5555" stroke-width="0.53" x1="15.875" x2="42.33" y1="118.22096774193548" y2="66.81666666666666"/>
   <circle cx="15.875" cy="118.22096774193548" fill="#ff5555" r="1.72"/>
   <circle cx="42.33" cy="66.81666666666666" fill="#ff5555" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="66.81666666666666">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="66.81666666666666">
     <tspan font-size="4.23px" font-weight="bold">The Fellowship of the Ring</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">J. R. R. Tolkien</tspan>
   </text>
   <circle cx="72.51064453125" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
   <circle cx="76.45064453124999" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
   <circle cx="80.39064453124999" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
-  <circle cx="80.39064453124999" cy="71.46966666666667" fill="#ffffff" r="1.12"/>
-  <path d="M 80.390645,70.049667
-              A 1.420000,1.420000 0 0,0 80.390645,72.889667
-    " fill="#ff5555"/>
   <circle cx="84.33064453124999" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
-  <circle cx="84.33064453124999" cy="71.46966666666667" fill="#ffffff" r="1.12"/>
   <circle cx="88.27064453124999" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
-  <circle cx="88.27064453124999" cy="71.46966666666667" fill="#ffffff" r="1.12"/>
   <line stroke="#ffd801" stroke-width="0.53" x1="15.875" x2="42.33" y1="90.86612903225806" y2="87.44677419354838"/>
   <circle cx="15.875" cy="90.86612903225806" fill="#ffd801" r="1.72"/>
   <circle cx="42.33" cy="87.44677419354838" fill="#ffd801" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="87.44677419354838">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="87.44677419354838">
     <tspan font-size="4.23px" font-weight="bold">The Shining</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Stephen King</tspan>
   </text>
-  <circle cx="70.134912109375" cy="92.09977419354838" fill="#ffd801" r="1.72"/>
-  <circle cx="74.07491210937499" cy="92.09977419354838" fill="#ffd801" r="1.72"/>
-  <circle cx="78.01491210937499" cy="92.09977419354838" fill="#ffd801" r="1.72"/>
-  <circle cx="78.01491210937499" cy="92.09977419354838" fill="#ffffff" r="1.12"/>
-  <path d="M 78.014912,90.679774
-              A 1.420000,1.420000 0 0,0 78.014912,93.519774
-    " fill="#ffd801"/>
-  <circle cx="81.95491210937499" cy="92.09977419354838" fill="#ffd801" r="1.72"/>
-  <circle cx="81.95491210937499" cy="92.09977419354838" fill="#ffffff" r="1.12"/>
-  <circle cx="85.89491210937499" cy="92.09977419354838" fill="#ffd801" r="1.72"/>
-  <circle cx="85.89491210937499" cy="92.09977419354838" fill="#ffffff" r="1.12"/>
   <line stroke="#ff1694" stroke-width="0.53" x1="15.875" x2="42.33" y1="85.73709677419355" y2="77.18870967741935"/>
   <circle cx="15.875" cy="85.73709677419355" fill="#ff1694" r="1.72"/>
   <circle cx="42.33" cy="77.18870967741935" fill="#ff1694" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="77.18870967741935">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="77.18870967741935">
     <tspan font-size="4.23px" font-weight="bold">Pride and Prejudice</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Jane Austen</tspan>
   </text>
-  <circle cx="67.909130859375" cy="81.84170967741936" fill="#ff1694" r="1.72"/>
-  <circle cx="71.849130859375" cy="81.84170967741936" fill="#ff1694" r="1.72"/>
-  <circle cx="75.78913085937499" cy="81.84170967741936" fill="#ff1694" r="1.72"/>
-  <circle cx="75.78913085937499" cy="81.84170967741936" fill="#ffffff" r="1.12"/>
-  <path d="M 75.789131,80.421710
-              A 1.420000,1.420000 0 0,0 75.789131,83.261710
-    " fill="#ff1694"/>
-  <circle cx="79.72913085937499" cy="81.84170967741936" fill="#ff1694" r="1.72"/>
-  <circle cx="79.72913085937499" cy="81.84170967741936" fill="#ffffff" r="1.12"/>
-  <circle cx="83.66913085937499" cy="81.84170967741936" fill="#ff1694" r="1.72"/>
-  <circle cx="83.66913085937499" cy="81.84170967741936" fill="#ffffff" r="1.12"/>
   <line stroke="#bebdb8" stroke-width="0.53" x1="15.875" x2="42.33" y1="59.75" y2="54.44999999999999"/>
   <circle cx="15.875" cy="59.75" fill="#bebdb8" r="1.72"/>
   <circle cx="42.33" cy="54.44999999999999" fill="#bebdb8" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="54.44999999999999">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="54.44999999999999">
     <tspan font-size="4.23px" font-weight="bold">J.R.R. Tolkien. A Biography</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Humphrey Carpenter</tspan>
   </text>
-  <circle cx="84.815673828125" cy="59.10299999999999" fill="#bebdb8" r="1.72"/>
-  <circle cx="88.755673828125" cy="59.10299999999999" fill="#bebdb8" r="1.72"/>
-  <circle cx="92.695673828125" cy="59.10299999999999" fill="#bebdb8" r="1.72"/>
-  <circle cx="92.695673828125" cy="59.10299999999999" fill="#ffffff" r="1.12"/>
-  <path d="M 92.695674,57.683000
-              A 1.420000,1.420000 0 0,0 92.695674,60.523000
-    " fill="#bebdb8"/>
-  <circle cx="96.635673828125" cy="59.10299999999999" fill="#bebdb8" r="1.72"/>
-  <circle cx="96.635673828125" cy="59.10299999999999" fill="#ffffff" r="1.12"/>
-  <circle cx="100.57567382812499" cy="59.10299999999999" fill="#bebdb8" r="1.72"/>
-  <circle cx="100.57567382812499" cy="59.10299999999999" fill="#ffffff" r="1.12"/>
   <line stroke="#2a7fff" stroke-width="0.53" x1="15.875" x2="42.33" y1="50.91666666666666" y2="43.849999999999994"/>
   <circle cx="15.875" cy="50.91666666666666" fill="#2a7fff" r="1.72"/>
   <circle cx="42.33" cy="43.849999999999994" fill="#2a7fff" r="1.72"/>
-  <text dominant-baseline="central" font-family="Galdeano" x="46.0" y="43.849999999999994">
+  <text dominant-baseline="central" fill="#000000" font-family="Galdeano" x="46.0" y="43.849999999999994">
     <tspan font-size="4.23px" font-weight="bold">The Hitchhiker's Guide to the Galaxy</tspan>
     <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Douglas Adams</tspan>
   </text>
   <circle cx="74.340771484375" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
   <circle cx="78.280771484375" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
   <circle cx="82.22077148437499" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
-  <circle cx="82.22077148437499" cy="48.50299999999999" fill="#ffffff" r="1.12"/>
-  <path d="M 82.220771,47.083000
-              A 1.420000,1.420000 0 0,0 82.220771,49.923000
-    " fill="#2a7fff"/>
   <circle cx="86.16077148437499" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
-  <circle cx="86.16077148437499" cy="48.50299999999999" fill="#ffffff" r="1.12"/>
   <circle cx="90.10077148437499" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
   <circle cx="90.10077148437499" cy="48.50299999999999" fill="#ffffff" r="1.12"/>
 </svg>

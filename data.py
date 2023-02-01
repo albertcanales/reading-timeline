@@ -125,6 +125,10 @@ class Book:
         self.category = None
         if 'category' in book.keys():
             self.category = self._get_category(book['category'], categories)
+        self.score = None
+        if 'score' in book.keys():
+            self.score = book['score']
+            self._check_score(self.title, self.score)
 
         # Error handling
         if self.finish_date < self.start_date:
@@ -142,6 +146,8 @@ class Book:
         s += ", %s - %s" % (self.start_date, self.finish_date)
         if self.category is not None:
             s += " [%s]" % self.category.name
+        if self.category is not None:
+            s += " {%s}" % self.category.name
         return s
 
     def is_in_range(self, from_date, to_date):
@@ -156,6 +162,14 @@ class Book:
         return None
 
     def _check_date(self, title, date):
-        if(not isinstance(date, datetime.date)):
+        if not isinstance(date, datetime.date):
             log.error("Book %s has an invalid date '%s'." % (title, date))
+            exit(1)
+
+    def _check_score(self, title, score):
+        if not isinstance(score, int):
+            log.error("Book %s has an invalid score '%s'." % (title, score))
+            exit(1)
+        if score < 0 or score > 10:
+            log.error("Score from book %s must be between 0 and 10 (or not defined)." % (title))
             exit(1)

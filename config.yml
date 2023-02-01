@@ -72,7 +72,15 @@ book_tip_radius: 1.72
 book_line_width: 0.53
 
 book_text_start_x: 46.0
+book_text_color: '#000000'
 book_text_line_spacing: 1.1
 book_text_font: Galdeano
 book_title_font_size: 4.23
 book_author_font_size: 3.7
+
+book_score_outer_radius: 1.72
+book_score_inner_radius: 1.12
+book_score_padding: 0.5
+# If true, takes the color of the book's category
+# If false, takes the color book_text_color
+book_score_colored: true

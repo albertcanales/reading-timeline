@@ -8,8 +8,13 @@ Font = namedtuple("Font", "name filename")
 param_types = {
     'book_author_font_size': float,
     'book_line_width': float,
+    'book_score_outer_radius': float,
+    'book_score_inner_radius': float,
+    'book_score_padding': float,
+    'book_score_colored': bool,
     'book_text_font': str,
     'book_text_line_spacing': float,
+    'book_text_color': Color,
     'book_text_start_x': float,
     'book_tip_radius': float,
     'book_title_font_size': float,

@@ -3,6 +3,7 @@ from pandas import date_range
 from collections import namedtuple
 from calendar import monthrange
 from math import ceil
+import cairo
 
 ProcessedMonth = namedtuple("ProcessedMonth", "text text_y line_y")
 ProcessedCategory = namedtuple("ProcessedCategory", "name color start_y")
@@ -99,6 +100,11 @@ class ProcessedBook:
         self.color = c.category_default_color
         if book.category is not None:
             self.color = book.category.color
+        self.score = None
+        if book.score is not None:
+            self.score = book.score / 2
+            self.score_x = c.book_text_start_x + self._get_textwidth(self.subtitle, c.book_author_font_size, c.book_text_font)
+            self.score_color = self.color if c.book_score_colored else c.book_text_color
 
     # Returns the subtitle text for a given book
     def _get_subtitle(self, book):
@@ -121,3 +127,12 @@ class ProcessedBook:
         month = [m for m in months if m.text == text]
         assert month, "No ProcessedMonth found for date %s" % text
         return month[0]
+
+    # Returns the width of the subtitle text, aproximate
+    def _get_textwidth(self, text, fontsize, family):
+        surface = cairo.SVGSurface('undefined.svg', 1280, 200)
+        cr = cairo.Context(surface)
+        cr.select_font_face(family)
+        cr.set_font_size(fontsize)
+        xbearing, ybearing, width, height, xadvance, yadvance = cr.text_extents(text)
+        return width

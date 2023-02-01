@@ -32,6 +32,7 @@ books:
     author: Jared Diamond
     started: 2022-04-10
     finished: 2022-05-13
+    score: 4
     category: history
 
   # A book with an undefined category
@@ -39,6 +40,7 @@ books:
     author: Andrew S. Tanenbaum
     started: 2022-04-23
     finished: 2022-05-01
+    score: 9
     category: programming
 
   - title: 1984
@@ -57,12 +59,14 @@ books:
     author: H. P. Lovecraft
     started: 2022-05-23
     finished: 2022-06-12
+    score: 7
     category: horror
 
   - title: Caliban
     author: Roger MacBride Allen
     started: 2022-07-02
     finished: 2022-07-06
+    score: 10
     category: scifi
 
   - title: Mistborn
@@ -81,12 +85,14 @@ books:
     author: Bram Stoker
     started: 2022-07-20
     finished: 2022-07-26
+    score: 5
     category: horror
 
   - title: Wuthering Heights
     author: Emily Brontë
     started: 2022-07-29
     finished: 2022-08-01
+    score: 7
     category: romance
 
   - title: Frankenstein
@@ -99,6 +105,7 @@ books:
     author: Susan Wise Bauer
     started: 2022-08-03
     finished: 2022-08-16
+    score: 3
     category: history
 
   # In case of tip collision, the last to appear is drawn on top
@@ -106,6 +113,7 @@ books:
     author: J. R. R. Tolkien
     started: 2022-08-04
     finished: 2022-09-03
+    score: 10
     category: fantasy
 
   - title: The Shining
@@ -130,4 +138,5 @@ books:
     author: Douglas Adams
     started: 2022-09-12
     finished: 2022-09-16
+    score: 8
     category: scifi

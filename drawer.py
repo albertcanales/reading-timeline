@@ -1,6 +1,4 @@
-import math
 import svgwrite
-import cairo
 
 def draw(path, c, p):
     dwg = svgwrite.Drawing(path, (c.canvas_size_x, p.canvas_size_y*c.canvas_zoom), viewBox="0 0 %d %d" %(c.canvas_size_x/c.canvas_zoom, p.canvas_size_y), style="background-color:%s" % c.canvas_background_color)
@@ -51,14 +49,7 @@ def draw_category(dwg, category, c, p):
 
     return dwg
 
-def textwidth(text, fontsize, family):
-    surface = cairo.SVGSurface('undefined.svg', 1280, 200)
-    cr = cairo.Context(surface)
-    cr.select_font_face(family)
-    cr.set_font_size(fontsize)
-    xbearing, ybearing, width, height, xadvance, yadvance = cr.text_extents(text)
-    return width
-
+# Helper function to draw half points on scores
 def score_semicircle(svg, position, radius, color):
     args = {'x0': position[0],
             'y0': position[1] - radius,
@@ -72,17 +63,14 @@ def score_semicircle(svg, position, radius, color):
     return svg.path(d=path, fill=color)
 
 def draw_score(dwg, x, y, book, c):
-    n = 5
-    s = 5
-    padding = 2*c.category_tip_radius + 0.5
-    outer_radius = c.book_tip_radius
-    inner_radius = outer_radius-0.6
+    padding = 2*c.category_tip_radius + c.book_score_padding
     for i in range(1, 6):
-        dwg.add(dwg.circle((x, y), r=outer_radius, fill=book.color))
-        if i > math.floor(s/2):
-            dwg.add(dwg.circle((x, y), r=inner_radius, fill=c.canvas_background_color))
-            if i <= math.ceil(s/2):
-                dwg.add(score_semicircle(dwg, (x,y), (inner_radius+outer_radius)/2, book.color))
+        dwg.add(dwg.circle((x, y), r=c.book_score_outer_radius, fill=book.score_color))
+        if i > book.score:
+            dwg.add(dwg.circle((x, y), r=c.book_score_inner_radius, fill=c.canvas_background_color))
+            if i < book.score + 1:
+                radius = (c.book_score_outer_radius + c.book_score_inner_radius) / 2
+                dwg.add(score_semicircle(dwg, (x,y), radius, book.score_color))
         x += padding
 
 def draw_book(dwg, book, c):
@@ -95,13 +83,13 @@ def draw_book(dwg, book, c):
 
     # Title and subtitle
     dy = c.book_title_font_size * c.book_text_line_spacing
-    text = dwg.text("", insert=(c.book_text_start_x, book.finish_y), dominant_baseline="central", font_family=c.book_text_font)
+    text = dwg.text("", insert=(c.book_text_start_x, book.finish_y), dominant_baseline="central", font_family=c.book_text_font, fill=c.book_text_color)
     text.add(dwg.tspan(book.title, font_weight='bold', font_size=str(c.book_title_font_size)+'px'))
     text.add(dwg.tspan(book.subtitle, x=[c.book_text_start_x], dy=[str(dy)+"px"], font_size=str(c.book_author_font_size)+'px'))
-    print(textwidth(book.subtitle, c.book_author_font_size, c.book_text_font))
     dwg.add(text)
-    score_x = c.book_text_start_x + textwidth(book.subtitle, c.book_author_font_size, c.book_text_font)
-    score_y = book.finish_y + dy
-    draw_score(dwg, score_x, score_y, book, c)
+
+    # Score
+    if book.score is not None:
+        draw_score(dwg, book.score_x, book.finish_y + dy, book, c)
     
     return dwg
