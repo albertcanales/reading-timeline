@@ -54,7 +54,11 @@ class Data:
         except TypeError:
             log.error("No books variable is found.")
             exit(1)
-        books = [Book(book, categories) for book in data['books']]
+        books = []
+        for book_data in data['books']:
+            book = Book(book_data, categories)
+            if book.finish_date is not None:
+                books.append(book)
         self._check_books(books)
         return self._get_books_in_dates(books, self.from_date, self.to_date)
 
@@ -109,16 +113,22 @@ class Book:
             self.title = book['title']
             self.author = book['author']
             self.start_date = book['started']
-            self.finish_date = book['finished']
 
             self._check_date(self.title, self.start_date)
-            self._check_date(self.title, self.finish_date)
 
         except KeyError:
             log.error("This book is missing data: \n%s" %book)
             exit(1)
 
-        # Optional fields
+        # Finished date optional field
+        self.finish_date = None
+        if 'finished' in book.keys():
+            self.finish_date = book['finished']
+            self._check_date(self.title, self.finish_date)
+        else:
+            log.warning("Book %s without finish date is being ignored" %(self.title))
+
+        # Other optional fields
         self.publication_year = None
         if 'publication_year' in book.keys():
             self.publication_year = book['publication_year']
@@ -134,7 +144,7 @@ class Book:
             self.link = book['link']
 
         # Error handling
-        if self.finish_date < self.start_date:
+        if self.finish_date is not None and self.finish_date < self.start_date:
             log.error("Book %s has been finished before started." % self.title)
             exit(1)
         if self.publication_year is not None:
