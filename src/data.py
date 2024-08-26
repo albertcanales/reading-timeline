@@ -166,8 +166,8 @@ class Book:
         s += ", %s - %s" % (self.start_date, self.finish_date)
         if self.category is not None:
             s += " [%s]" % self.category.name
-        if self.category is not None:
-            s += " {%s}" % self.category.name
+        if self.link is not None:
+            s += " {%s}" % self.link
         return s
 
     def is_in_range(self, from_date, to_date):
