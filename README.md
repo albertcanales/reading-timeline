@@ -3,7 +3,7 @@
 Visualise your readings with an automatically generated timeline.
 
 <p align="center">
-	<img src="timeline.svg" height="1000">
+	<img src="example.svg" height="1000">
 </p>
 
 ## Getting Started
