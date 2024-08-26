@@ -57,7 +57,7 @@ cd <DIRECTORY>/reading-timeline
 
 And run the program:
 ``` sh
-env/bin/python main.py -vv
+env/bin/python src/main.py -vv
 ```
 
 ## Updating

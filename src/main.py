@@ -24,8 +24,8 @@ except ModuleNotFoundError:
     log.error("Modules not found. Ensure venv is used and requirements are installed.")
     exit(1)
 
-data_file = 'data.yml'
-params_file = 'params.yml'
+data_file = 'config/data.yml'
+params_file = 'config/params.yml'
 output_file = 'timeline.svg'
 
 # Returns the dictionary from the given yaml file path
