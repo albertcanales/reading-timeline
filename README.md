@@ -39,48 +39,44 @@ cd <DIRECTORY>
 ``` sh
 git clone https://github.com/albertcanales/reading-timeline.git && cd reading-timeline
 ```
-3. Create the virtual environment with venv
+3. Install required Python packages on a virtual environment
 ``` sh
-python3 -m venv env
-```
-4. Install required Python packages with pip
-``` sh
-env/bin/pip install -r requirements.txt
+make install
 ```
 
 ## Usage
 
 To use the program, first move into the installation directory:
-``` sh
-cd <DIRECTORY>/reading-timeline
-```
+
+	cd <DIRECTORY>/reading-timeline
+
 
 And run the program:
-``` sh
-env/bin/python src/main.py -vv
-```
+
+	make run
+
+Additionally, you may use `make run-v` or `make run-vv` to get more information on the output.
 
 ## Updating
 
 To update to the latest features, first move into the installation directory:
-``` sh
-cd <DIRECTORY>/reading-timeline
-```
+
+	cd <DIRECTORY>/reading-timeline
 
 And then pull the changes from master:
-``` sh
-git pull
-```
+
+	git pull
+
 
 ## Contributing
 
-Giving bug reports and feature requests is greatly appreciated. The easiest ways to do so are to [contact me directly](mailto:albertcanalesros@gmail.com) or to open an issue. You can also make a pull request, but I would recommend first getting in touch to ease the task of merging.
+Giving bug reports and feature requests is greatly appreciated. The easiest ways to do so are to [contact me directly](mailto:contact@albertcanales.com) or to open an issue. You can also make a pull request, but I would recommend first getting in touch to ease the task of merging.
 
 ## Help
 
 The following command shows the program's help and options:
 
-	python main.yml -h
+	make help
 
 ## License
 
@@ -89,6 +85,6 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 ## Acknowledgments
 
 This project has been completely based on the great design from [
-Jeff Allen](https://jamaps.github.io).
+Jeff Allen](https://jamaps.github.io/words/words.html).
 
 Thanks also to [Abel Doñate](https://abeldonate.com) for the ideas, testing and feedback.

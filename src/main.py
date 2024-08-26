@@ -21,7 +21,7 @@ try:
     import processor as proc
     import drawer as drw
 except ModuleNotFoundError:
-    log.error("Modules not found. Ensure venv is used and requirements are installed.")
+    log.error("Modules not found. Ensure you have installed dependencies with *make install*")
     exit(1)
 
 data_file = 'config/data.yml'
