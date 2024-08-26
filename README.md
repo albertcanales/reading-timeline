@@ -11,7 +11,7 @@ Visualise your readings with an automatically generated timeline.
 Reading Timeline is intended to work without the need to access or modify the source code. To generate the timeline, there are some parameters that are described in the following files:
 
 - `data.yml`. Contains the actual book data. Categories, books, and all of their properties.
-- `config.yml`. Contains the parameters used to generate the drawing. For example: the color of the timeline, the width of its line, the font of the labels, etc.
+- `params.yml`. Contains the parameters used to generate the drawing. For example: the color of the timeline, the width of its line, the font of the labels, etc.
 
 These files should be self-explanatory, so feel free to play around to fully  customise your timeline.
 

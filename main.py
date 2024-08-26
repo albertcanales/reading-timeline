@@ -8,8 +8,8 @@ parser.add_argument('-v', '--verbosity', action="count", default=0,
                     help="increase output verbosity (e.g., -vv is more than -v)")
 parser.add_argument('-d', '--data_file', required=False,
                     help='Path to the data file (YAML)')
-parser.add_argument('-c', '--config_file', required=False,
-                    help='Path to the config file (YAML)')
+parser.add_argument('-p', '--params_file', required=False,
+                    help='Path to the params file (YAML)')
 parser.add_argument('-o', '--output_file', required=False,
                     help='Path for the output file (SVG)')
 args = parser.parse_args()
@@ -17,7 +17,7 @@ args = parser.parse_args()
 try:
     import yaml
     import data as dat
-    import config as con
+    import params as par
     import processor as proc
     import drawer as drw
 except ModuleNotFoundError:
@@ -25,7 +25,7 @@ except ModuleNotFoundError:
     exit(1)
 
 data_file = 'data.yml'
-config_file = 'config.yml'
+params_file = 'params.yml'
 output_file = 'timeline.svg'
 
 # Returns the dictionary from the given yaml file path
@@ -48,11 +48,11 @@ def main():
     log.basicConfig(level=log_levels[args.verbosity])
 
     # Get arg files
-    global data_file, config_file, output_file
+    global data_file, params_file, output_file
     if args.data_file is not None:
         data_file = args.data_file
-    if args.config_file is not None:
-        config_file = args.config_file
+    if args.params_file is not None:
+        params_file = args.params_file
     if args.output_file is not None:
         output_file = args.output_file
 
@@ -62,18 +62,18 @@ def main():
     data = dat.Data(data_dict)
     log.info(data)
 
-    # Read the configuration
-    log.info("Reading configuration...")
-    config_dict = read_yaml(config_file)
-    config = con.Config(config_dict)
+    # Read params file
+    log.info("Reading parameters...")
+    params_dict = read_yaml(params_file)
+    params = par.Params(params_dict)
 
-    # Process data using the configuration
-    log.info("Applying configuration to data...")
-    process = proc.Processor(data, config)
+    # Process data using the parameters
+    log.info("Applying parameters to data...")
+    process = proc.Processor(data, params)
 
-    # Draw the image from processed data and configuration
+    # Draw the image from processed data and parameters
     log.info("Drawing SVG...")
-    drw.draw(output_file, config, process)
+    drw.draw(output_file, params, process)
     log.info("Drawing done")
 
 if __name__ == "__main__":

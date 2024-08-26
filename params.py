@@ -4,7 +4,7 @@ from collections import namedtuple
 
 Font = namedtuple("Font", "name filename")
 
-# Represents the type for each parameter in the config file
+# Represents the type for each parameter in the params file
 param_types = {
     'book_author_font_size': float,
     'book_line_width': float,
@@ -59,9 +59,9 @@ param_types = {
 }
 
 '''
-Represents the configuration parameters
+Represents the parameters
 '''
-class Config:
+class Params:
     def __init__(self, params):
         # Params
         for p in param_types.keys():

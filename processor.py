@@ -9,14 +9,14 @@ ProcessedMonth = namedtuple("ProcessedMonth", "text text_y line_y")
 ProcessedCategory = namedtuple("ProcessedCategory", "name color start_y")
 
 '''
-Represents all the configuration parameters and objects that require some processing before drawn
+Represents all the parameters and objects that require some processing before drawn
 '''
 class Processor:
-    def __init__(self, data, config):
-        self._process_months(data, config)
-        self._process_categories(data, config)
-        self._process_books(data, config)
-        self._process_other(data, config)
+    def __init__(self, data, params):
+        self._process_months(data, params)
+        self._process_categories(data, params)
+        self._process_books(data, params)
+        self._process_other(data, params)
 
     # Sets the ProcessedMonth list of the object
     def _process_months(self, data, c):
