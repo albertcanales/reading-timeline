@@ -204,14 +204,14 @@
   <a target="_blank" xlink:href="https://www.youtube.com/@NerdoftheRings">
     <text dominant-baseline="central" fill="#000000" font-family="Galdeano" font-style="italic" x="46.0" y="66.81666666666666">
       <tspan font-size="4.23px" font-weight="bold">The Fellowship of the Ring</tspan>
-      <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">J. R. R. Tolkien</tspan>
+      <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">J. R. R. Tolkien (1954)</tspan>
     </text>
   </a>
-  <circle cx="72.51064453125" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
-  <circle cx="76.45064453124999" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
-  <circle cx="80.39064453124999" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
-  <circle cx="84.33064453124999" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
-  <circle cx="88.27064453124999" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
+  <circle cx="85.98637695312502" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
+  <circle cx="89.92637695312501" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
+  <circle cx="93.86637695312501" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
+  <circle cx="97.80637695312501" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
+  <circle cx="101.74637695312501" cy="71.46966666666667" fill="#ff5555" r="1.72"/>
   <line stroke="#ffd801" stroke-width="0.53" x1="15.875" x2="42.33" y1="90.86612903225806" y2="87.44677419354838"/>
   <circle cx="15.875" cy="90.86612903225806" fill="#ffd801" r="1.72"/>
   <circle cx="42.33" cy="87.44677419354838" fill="#ffd801" r="1.72"/>
@@ -240,12 +240,12 @@
   <circle cx="42.33" cy="43.849999999999994" fill="#2a7fff" r="1.72"/>
   <text dominant-baseline="central" fill="#000000" font-family="Galdeano" font-style="normal" x="46.0" y="43.849999999999994">
     <tspan font-size="4.23px" font-weight="bold">The Hitchhiker's Guide to the Galaxy</tspan>
-    <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Douglas Adams</tspan>
+    <tspan dy="4.6530000000000005px" font-size="3.7px" x="46.0">Douglas Adams (1979)</tspan>
   </text>
-  <circle cx="74.340771484375" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
-  <circle cx="78.280771484375" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
-  <circle cx="82.22077148437499" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
-  <circle cx="86.16077148437499" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
-  <circle cx="90.10077148437499" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
-  <circle cx="90.10077148437499" cy="48.50299999999999" fill="#ffffff" r="1.12"/>
+  <circle cx="87.68281250000001" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
+  <circle cx="91.62281250000001" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
+  <circle cx="95.5628125" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
+  <circle cx="99.5028125" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
+  <circle cx="103.4428125" cy="48.50299999999999" fill="#2a7fff" r="1.72"/>
+  <circle cx="103.4428125" cy="48.50299999999999" fill="#ffffff" r="1.12"/>
 </svg>

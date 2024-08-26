@@ -116,6 +116,7 @@ books:
     started: 2022-08-04
     finished: 2022-09-03
     link: https://www.youtube.com/@NerdoftheRings
+    publication_year: 1954
     score: 10
     category: fantasy
 
@@ -132,7 +133,7 @@ books:
     finished: 2022-08-28
     category: romance
 
-  # A book with no category
+  # A book with no category nor score
   - title: J.R.R. Tolkien. A Biography
     author: Humphrey Carpenter
     started: 2022-09-07
@@ -142,5 +143,6 @@ books:
     author: Douglas Adams
     started: 2022-09-12
     finished: 2022-09-16
+    publication_year: 1979
     score: 8
     category: scifi
