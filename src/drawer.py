@@ -1,119 +1,120 @@
 import svgwrite
 
 
-def draw(path, c, p):
+def draw(path, prms, proc):
     dwg = svgwrite.Drawing(
         path,
-        (c.canvas_size_x, p.canvas_size_y * c.canvas_zoom),
-        viewBox="0 0 %d %d" % (c.canvas_size_x / c.canvas_zoom, p.canvas_size_y),
-        style="background-color:%s" % c.canvas_background_color,
+        (prms.canvas_size_x, proc.canvas_size_y * prms.canvas_zoom),
+        viewBox="0 0 %d %d"
+        % (prms.canvas_size_x / prms.canvas_zoom, proc.canvas_size_y),
+        style="background-color:%s" % prms.canvas_background_color,
     )
-    dwg = draw_grid(dwg, c, p)
-    for font in c.fonts:
+    dwg = draw_grid(dwg, prms, proc)
+    for font in prms.fonts:
         dwg.embed_font(name=font.name, filename=font.filename)
-    for category in p.categories:
-        dwg = draw_category(dwg, category, c, p)
-    for book in p.books:
-        dwg = draw_book(dwg, book, c)
+    for category in proc.categories:
+        dwg = draw_category(dwg, category, prms, proc)
+    for book in proc.books:
+        dwg = draw_book(dwg, book, prms)
     dwg.save(pretty=True)
 
 
-def draw_grid(dwg, c, p):
+def draw_grid(dwg, prms, proc):
     # Vertical lines
     dwg.add(
         dwg.line(
-            (c.timeline_start_x, c.timeline_start_y),
-            (c.timeline_start_x, p.timeline_end_y),
-            stroke=c.timeline_line_color,
-            stroke_width=c.timeline_line_width,
+            (prms.timeline_start_x, prms.timeline_start_y),
+            (prms.timeline_start_x, proc.timeline_end_y),
+            stroke=prms.timeline_line_color,
+            stroke_width=prms.timeline_line_width,
         )
     )
     dwg.add(
         dwg.line(
-            (c.timeline_end_x, c.timeline_start_y),
-            (c.timeline_end_x, p.timeline_end_y),
-            stroke=c.timeline_line_color,
-            stroke_width=c.timeline_line_width,
+            (prms.timeline_end_x, prms.timeline_start_y),
+            (prms.timeline_end_x, proc.timeline_end_y),
+            stroke=prms.timeline_line_color,
+            stroke_width=prms.timeline_line_width,
         )
     )
 
     # Month labels and lines
     dwg.add(
         dwg.line(
-            (c.month_line_start_x, c.month_line_start_y),
-            (c.timeline_end_x, c.month_line_start_y),
-            stroke=c.timeline_line_color,
-            stroke_width=c.timeline_line_width,
+            (prms.month_line_start_x, prms.month_line_start_y),
+            (prms.timeline_end_x, prms.month_line_start_y),
+            stroke=prms.timeline_line_color,
+            stroke_width=prms.timeline_line_width,
         )
     )
-    for month in p.months:
+    for month in proc.months:
         dwg.add(
             dwg.text(
                 month.text,
-                insert=(c.month_text_start_x, month.text_y),
+                insert=(prms.month_text_start_x, month.text_y),
                 font_style="italic",
-                font_size=str(c.month_text_font_size) + "px",
-                font_family=c.month_text_font,
-                fill=c.month_text_color,
+                font_size=str(prms.month_text_font_size) + "px",
+                font_family=prms.month_text_font,
+                fill=prms.month_text_color,
             )
         )
         dwg.add(
             dwg.line(
-                (c.month_line_start_x, month.line_y),
-                (c.timeline_end_x, month.line_y),
-                stroke=c.timeline_line_color,
-                stroke_width=c.timeline_line_width,
+                (prms.month_line_start_x, month.line_y),
+                (prms.timeline_end_x, month.line_y),
+                stroke=prms.timeline_line_color,
+                stroke_width=prms.timeline_line_width,
             )
         )
 
     # Date labels
-    dy = c.date_text_font_size * c.date_text_line_spacing
+    dy = prms.date_text_font_size * prms.date_text_line_spacing
 
     text = dwg.text(
         "",
-        insert=(c.date_started_start_x, c.date_text_start_y),
+        insert=(prms.date_started_start_x, prms.date_text_start_y),
         font_style="italic",
-        font_size=str(c.date_text_font_size) + "px",
-        font_family=c.date_text_font,
-        fill=c.date_text_color,
-        text_anchor=c.date_text_anchor,
+        font_size=str(prms.date_text_font_size) + "px",
+        font_family=prms.date_text_font,
+        fill=prms.date_text_color,
+        text_anchor=prms.date_text_anchor,
     )
     text.add(dwg.tspan("Date"))
-    text.add(dwg.tspan("Started", x=[c.date_started_start_x], dy=[str(dy) + "px"]))
+    text.add(dwg.tspan("Started", x=[prms.date_started_start_x], dy=[str(dy) + "px"]))
     dwg.add(text)
 
     text = dwg.text(
         "",
-        insert=(c.date_finished_start_x, c.date_text_start_y),
+        insert=(prms.date_finished_start_x, prms.date_text_start_y),
         font_style="italic",
-        font_size=str(c.date_text_font_size) + "px",
-        font_family=c.date_text_font,
-        fill=c.date_text_color,
-        text_anchor=c.date_text_anchor,
+        font_size=str(prms.date_text_font_size) + "px",
+        font_family=prms.date_text_font,
+        fill=prms.date_text_color,
+        text_anchor=prms.date_text_anchor,
     )
     text.add(dwg.tspan("Date"))
-    text.add(dwg.tspan("Finished", x=[c.date_finished_start_x], dy=[str(dy) + "px"]))
+    text.add(dwg.tspan("Finished", x=[prms.date_finished_start_x], dy=[str(dy) + "px"]))
     dwg.add(text)
 
     return dwg
 
 
-def draw_category(dwg, category, c, p):
+def draw_category(dwg, category, prms, proc):
     # Line
     dwg.add(
         dwg.line(
-            (c.category_line_start_x, category.start_y),
-            (p.category_line_end_x, category.start_y),
+            (prms.category_line_start_x, category.start_y),
+            (proc.category_line_end_x, category.start_y),
             stroke=category.color,
-            stroke_width=c.category_line_width,
+            stroke_width=prms.category_line_width,
         )
     )
 
     # Circle
     dwg.add(
         dwg.circle(
-            (p.category_line_end_x, category.start_y),
-            r=c.category_tip_radius,
+            (proc.category_line_end_x, category.start_y),
+            r=prms.category_tip_radius,
             fill=category.color,
         )
     )
@@ -122,11 +123,11 @@ def draw_category(dwg, category, c, p):
     dwg.add(
         dwg.text(
             category.name,
-            insert=(p.category_text_start_x, category.start_y),
-            font_size=str(c.category_text_font_size) + "px",
-            fill=c.category_text_color,
+            insert=(proc.category_text_start_x, category.start_y),
+            font_size=str(prms.category_text_font_size) + "px",
+            fill=prms.category_text_color,
             dominant_baseline="middle",
-            font_family=c.category_text_font,
+            font_family=prms.category_text_font,
         )
     )
 
@@ -151,67 +152,79 @@ def score_semicircle(dwg, position, radius, color):
     return dwg.path(d=path, fill=color)
 
 
-def draw_score(dwg, x, y, book, c):
-    padding = 2 * c.category_tip_radius + c.book_score_padding
+def draw_score(dwg, x, y, book, prms):
+    padding = 2 * prms.category_tip_radius + prms.book_score_padding
     for i in range(1, 6):
-        dwg.add(dwg.circle((x, y), r=c.book_score_outer_radius, fill=book.score_color))
+        dwg.add(
+            dwg.circle((x, y), r=prms.book_score_outer_radius, fill=book.score_color)
+        )
         if i > book.score:
             dwg.add(
                 dwg.circle(
-                    (x, y), r=c.book_score_inner_radius, fill=c.canvas_background_color
+                    (x, y),
+                    r=prms.book_score_inner_radius,
+                    fill=prms.canvas_background_color,
                 )
             )
             if i < book.score + 1:
-                radius = (c.book_score_outer_radius + c.book_score_inner_radius) / 2
+                radius = (
+                    prms.book_score_outer_radius + prms.book_score_inner_radius
+                ) / 2
                 dwg.add(score_semicircle(dwg, (x, y), radius, book.score_color))
         x += padding
 
 
-def draw_book(dwg, book, c):
+def draw_book(dwg, book, prms):
     # Line
     dwg.add(
         dwg.line(
-            (c.timeline_start_x, book.start_y),
-            (c.timeline_end_x, book.finish_y),
+            (prms.timeline_start_x, book.start_y),
+            (prms.timeline_end_x, book.finish_y),
             stroke=book.color,
-            stroke_width=c.book_line_width,
+            stroke_width=prms.book_line_width,
         )
     )
 
     # Circles
     dwg.add(
         dwg.circle(
-            (c.timeline_start_x, book.start_y), r=c.book_tip_radius, fill=book.color
+            (prms.timeline_start_x, book.start_y),
+            r=prms.book_tip_radius,
+            fill=book.color,
         )
     )
     dwg.add(
         dwg.circle(
-            (c.timeline_end_x, book.finish_y), r=c.book_tip_radius, fill=book.color
+            (prms.timeline_end_x, book.finish_y),
+            r=prms.book_tip_radius,
+            fill=book.color,
         )
     )
 
     # Title and subtitle
-    dy = c.book_title_font_size * c.book_text_line_spacing
+    dy = prms.book_title_font_size * prms.book_text_line_spacing
     style = "italic" if book.link is not None else "normal"
     text = dwg.text(
         "",
-        insert=(c.book_text_start_x, book.finish_y),
+        insert=(prms.book_text_start_x, book.finish_y),
         dominant_baseline="central",
-        font_family=c.book_text_font,
-        fill=c.book_text_color,
+        font_family=prms.book_text_font,
+        fill=prms.book_text_color,
         font_style=style,
     )
     text.add(
         dwg.tspan(
-            book.title, font_weight="bold", font_size=str(c.book_title_font_size) + "px"
+            book.title,
+            font_weight="bold",
+            font_size=str(prms.book_title_font_size) + "px",
         )
     )
     text.add(
         dwg.tspan(
             book.subtitle,
-            x=[c.book_text_start_x],
+            x=[prms.book_text_start_x],
             dy=[str(dy) + "px"],
-            font_size=str(c.book_author_font_size) + "px",
+            font_size=str(prms.book_author_font_size) + "px",
         )
     )
 
@@ -224,6 +237,6 @@ def draw_book(dwg, book, c):
 
     # Score
     if book.score is not None:
-        draw_score(dwg, book.score_x, book.finish_y + dy, book, c)
+        draw_score(dwg, book.score_x, book.finish_y + dy, book, prms)
 
     return dwg
