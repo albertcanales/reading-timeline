@@ -1,8 +1,7 @@
 import logging as log
 from colour import Color
-from collections import namedtuple
+from pydantic import BaseModel
 
-Font = namedtuple("Font", "name filename")
 
 # Represents the type for each parameter in the params file
 param_types = {
@@ -99,7 +98,7 @@ class Params:
                 if "filename" not in item:
                     log.error("A font is missing filename")
                     exit(1)
-                font = Font(item["name"], item["filename"])
+                font = Font(name=item["name"], filename=item["filename"])
                 try:
                     open(font.filename, "r")
                 except OSError:
@@ -118,3 +117,8 @@ class Params:
                 print(font)
                 log.error("Font not found in fonts variable.")
                 exit(1)
+
+
+class Font(BaseModel):
+    name: str
+    filename: str

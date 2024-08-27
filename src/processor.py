@@ -1,12 +1,9 @@
-import logging as log
-from pandas import date_range
-from collections import namedtuple
 from calendar import monthrange
 from math import ceil
+from pandas import date_range
+from pydantic import BaseModel
 import cairo
-
-ProcessedMonth = namedtuple("ProcessedMonth", "text text_y line_y")
-ProcessedCategory = namedtuple("ProcessedCategory", "name color start_y")
+import logging as log
 
 """
 Represents all the parameters and objects that require some processing before drawn
@@ -42,7 +39,7 @@ class Processor:
                 + prms.month_text_font_size / 2
             )
             line_y = prms.month_line_start_y + prms.month_height * (i + 1)
-            self.months.append(ProcessedMonth(m, text_y, line_y))
+            self.months.append(ProcessedMonth(text=m, text_y=text_y, line_y=line_y))
             i += 1
 
     # Sets the ProcesseCategory list of the object
@@ -53,7 +50,9 @@ class Processor:
         for category in data.categories:
             if not prms.category_hide_unused or category in used_categories:
                 self.categories.append(
-                    ProcessedCategory(category.name, category.color, y)
+                    ProcessedCategory(
+                        name=category.name, color=category.color, start_y=y
+                    )
                 )
                 y += prms.category_vertical_spacing
 
@@ -122,6 +121,18 @@ class Processor:
                 min_y = min(min_y, y)
             i += 1
         return min_y
+
+
+class ProcessedMonth(BaseModel):
+    text: str
+    text_y: float
+    line_y: float
+
+
+class ProcessedCategory(BaseModel):
+    name: str
+    color: str
+    start_y: float
 
 
 class ProcessedBook:
