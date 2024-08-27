@@ -8,12 +8,17 @@ Represents the union of the YAML's data: books
 
 
 class Data:
-    def __init__(self, data):
+    def __init__(self, data, data_args):
         # Optional fields
         self.categories = self._init_categories(data)
-        self.from_date = data["from"] if "from" in data.keys() else None
-        self.to_date = data["to"] if "to" in data.keys() else None
-
+        if data_args.from_ is None:
+            self.from_date = data["from"] if "from" in data.keys() else None
+        else:
+            self.from_date = data_args.from_
+        if data_args.to is None:
+            self.to_date = data["to"] if "to" in data.keys() else None
+        else:
+            self.to_date = data_args.to
         self.books = self._init_books(data, self.categories)
 
     def __str__(self):

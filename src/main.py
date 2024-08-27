@@ -1,6 +1,6 @@
 try:
     import logging as log
-    from args import Args
+    from args import Args, DataArgs
     from logs import set_log_verbosity
     from yml import read_yml
     from data import Data
@@ -15,13 +15,15 @@ except ModuleNotFoundError:
 
 
 def main():
+    # Read arguments
     args = Args()
     set_log_verbosity(args.get_verbosity())
+    data_args = DataArgs(from_=args.get_from(), to=args.get_to())
 
     # Read data file
     log.info("Reading input data...")
     data_dict = read_yml(args.get_data_file())
-    data = Data(data_dict)
+    data = Data(data_dict, data_args)
     log.info(data)
 
     # Read params file
