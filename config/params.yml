@@ -18,7 +18,7 @@ fonts:
 
 canvas_background_color: '#ffffff'
 canvas_zoom: 5.0
-canvas_size_x: 600.0
+canvas_size_x: 700.0
 canvas_padding_bottom: 1
 
 # Timeline
@@ -54,10 +54,12 @@ date_finished_start_x: 41.09
 # Category
 
 category_hide_unused: true
+category_max_rows: 3
+category_column_width: 30
+category_start_x: 69.21
 category_default_color: '#bebdb8'
 category_start_y: 5.54
 category_vertical_spacing: 4.48
-category_line_start_x: 69.21
 category_line_length: 8.49
 category_line_width: 0.53
 category_tip_radius: 1.72

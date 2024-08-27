@@ -103,8 +103,8 @@ def draw_category(dwg, category, prms, proc):
     # Line
     dwg.add(
         dwg.line(
-            (prms.category_line_start_x, category.start_y),
-            (proc.category_line_end_x, category.start_y),
+            (category.line_start_x, category.start_y),
+            (category.line_end_x, category.start_y),
             stroke=category.color,
             stroke_width=prms.category_line_width,
         )
@@ -113,7 +113,7 @@ def draw_category(dwg, category, prms, proc):
     # Circle
     dwg.add(
         dwg.circle(
-            (proc.category_line_end_x, category.start_y),
+            (category.line_end_x, category.start_y),
             r=prms.category_tip_radius,
             fill=category.color,
         )
@@ -123,7 +123,7 @@ def draw_category(dwg, category, prms, proc):
     dwg.add(
         dwg.text(
             category.name,
-            insert=(proc.category_text_start_x, category.start_y),
+            insert=(category.text_start_x, category.start_y),
             font_size=str(prms.category_text_font_size) + "px",
             fill=prms.category_text_color,
             dominant_baseline="middle",

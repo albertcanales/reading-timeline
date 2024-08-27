@@ -47,14 +47,27 @@ class Processor:
         y = prms.category_start_y
         self.categories = []
         used_categories = {book.category for book in data.books}
+        line_start_x = prms.category_start_x
+        category_counter = 0
         for category in data.categories:
             if not prms.category_hide_unused or category in used_categories:
+                line_end_x = line_start_x + prms.category_line_length
+                text_start_x = line_end_x + prms.category_text_padding
                 self.categories.append(
                     ProcessedCategory(
-                        name=category.name, color=category.color, start_y=y
+                        name=category.name,
+                        color=category.color,
+                        start_y=y,
+                        line_start_x=line_start_x,
+                        line_end_x=line_end_x,
+                        text_start_x=text_start_x,
                     )
                 )
                 y += prms.category_vertical_spacing
+                category_counter += 1
+                if category_counter % prms.category_max_rows == 0:
+                    line_start_x += prms.category_column_width
+                    y = prms.category_start_y
 
     # Sets the ProcessedBook list of the object
     def _process_books(self, data, prms):
@@ -65,12 +78,6 @@ class Processor:
     def _process_other(self, data, prms):
         self.timeline_end_y = (
             prms.month_line_start_y + len(self.months) * prms.month_height
-        )
-        self.category_line_end_x = (
-            prms.category_line_start_x + prms.category_line_length
-        )
-        self.category_text_start_x = (
-            self.category_line_end_x + prms.category_text_padding
         )
         self.canvas_size_y = (
             self.timeline_end_y + prms.canvas_padding_bottom * prms.canvas_zoom
@@ -133,6 +140,9 @@ class ProcessedCategory(BaseModel):
     name: str
     color: str
     start_y: float
+    line_start_x: float
+    line_end_x: float
+    text_start_x: float
 
 
 class ProcessedBook:
