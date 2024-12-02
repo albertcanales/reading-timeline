@@ -1,17 +1,17 @@
 default: run
 
-install:
-	python3 -m venv env
-	env/bin/pip install -r requirements.txt
-
-clean:
-	rm -rf env
+build:
+	python -m venv .venv
+	.venv/bin/pip install -r requirements.txt
 
 run:
-	env/bin/python src/main.py
+	.venv/bin/python src/main.py
 
-run-v:
-	env/bin/python src/main.py -v
+run-info:
+	.venv/bin/python src/main.py -v
 
-run-vv:
-	env/bin/python src/main.py -vv
+run-debug:
+	.venv/bin/python src/main.py -vv
+
+clean:
+	rm -rf .venv

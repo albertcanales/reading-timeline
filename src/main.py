@@ -9,7 +9,7 @@ try:
     from drawer import draw
 except ModuleNotFoundError:
     log.error(
-        "Modules not found. Ensure you have installed dependencies with *make install*"
+        "Modules not found. Ensure you have installed dependencies with *make build*"
     )
     exit(1)
 
